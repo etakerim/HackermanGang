@@ -1,8 +1,8 @@
 # Hackerman Gang 
 Programátorský krúžok založený na rozvíjanie logického a programátorského myslenie u študentov. 
 Zároveň so zámerom vzájomného vzdelávania sa a vytvárania kolaboratívnych projektov.
-- šk.r. 2016/2017 =  18.1.2017 - 14.6.2017 (16 stretnutí)
-- šk.r. 2017/2018 =  17.10.2017 - trvá     (7 stretnutí ku 19.12.)
+- šk.r. 2016/2017 =  18.1.2017 - 14.6.2017
+- šk.r. 2017/2018 =  17.10.2017 - trvá     
 
 
 ### Informácie pre účastníkov
