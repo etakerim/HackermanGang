@@ -97,8 +97,7 @@ ____
 
 [Obrázky bežiaceho panáčika](https://opengameart.org/content/stick-man-runner) som pre ľahšie načítanie poskladal do jedného obrázku (*sprite sheet*), podobajúceho sa na filmový pás (**Kód patrí do časti #1**)
 
-![Sprite sheet][https://github.com/etakerim/HackermanGang/raw/master/Inšpirácia/sprity/stickmen.png "Spritesheet"] 
-
+![Sprite sheet](https://github.com/etakerim/HackermanGang/raw/master/Inšpirácia/sprity/stickmen.png "Spritesheet") 
 
 
 ```python
@@ -222,7 +221,7 @@ Vrátime sa k jednoduchšiemu príkladu guličky, ktorá sa posúva z horizontá
 x = 0
 # Animácia
 pygame.draw.circle(window, color=(255, 0, 0), pos=(x, 100), radius=50)
-x += 10    
+x += 10
 ```
 
 Potom si niekto vymyslel, že by chcel tie guličky tri a napokon by bolo super, keby každá išla inou rýchlosťou.
@@ -241,7 +240,7 @@ x1 += 10
 x2 += 15
 ```
 
-Ako viete takéto opakovania sa dajú vyriešiť cyklom a zoznamom lôpt, ale my musíme do toho napasovať ešte snímky animácie, ktoré máme v ďalšom poli, a tiež rýchlosť ich premietania. Dostávame sa do situácie, kedy zoznamy prestávajú byť praktické. Naštastie aj na to sa myslelo a preto existujú spôsoby ako zlúčiť súvisiace premenné "pod jednu strechu".  
+Ako viete takéto opakovania sa dajú vyriešiť cyklom a zoznamom lôpt, ale my musíme do toho napasovať ešte snímky animácie, ktoré máme v ďalšom poli, a tiež rýchlosť ich premietania. Dostávame sa do situácie, kedy zoznamy prestávajú byť praktické. Naštastie aj na to sa myslelo a preto existujú spôsoby ako zlúčiť súvisiace premenné "pod jednu strechu".
 
 ____
 
