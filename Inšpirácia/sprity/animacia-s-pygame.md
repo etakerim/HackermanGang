@@ -8,7 +8,7 @@ ____
 
 Pri tvorbe hier nám zvyčajne nestačia len čiary, kruhy a obdĺžniky, ale chceme použiť pripravené obrázky na otexturovanie vykreslovaných predmetov. Pokiaľ ide o zložitejšiu scénu potrebujeme tiež upravovať jej súčasti nezávisle na sebe. Použitým *spritov* (malé rastrové obrázky) môžeme napríklad animovať vodu, oheň, trávu, pohyby hráča a iných postáv.
 
-Ukážeme si ako vytvoriť ilúziu bežiacich panáčikov. Najlepšie nám na tento účel poslúži programovací jazyk **Python** a balíček **pygame**. Návod ako všetko nainštalovať na svoj počítač nájdete na [webstránke pygamu](https://www.pygame.org/wiki/GettingStarted). 
+Ukážeme si ako vytvoriť ilúziu bežiacich panáčikov. Najlepšie nám na tento účel poslúži programovací jazyk **Python** a balíček **pygame**. Návod ako všetko nainštalovať na svoj počítač nájdete na [webstránke pygamu](https://www.pygame.org/wiki/GettingStarted).
 
 ____
 
@@ -34,7 +34,7 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
-    
+
     window.fill(WHITE)
     #2
     pygame.display.update()
@@ -83,7 +83,7 @@ while True:
 Dostávame sa k začiatku [**herného cyklu**](https://gamedevelopment.tutsplus.com/articles/gamedev-glossary-what-is-the-game-loop--gamedev-2469). Pozostáva z dvoch častí. Aktuálne sa sústredíme na **spracovanie udalostí**. Pri kliknutí myšou, stlačení klávesy alebo v tomto prípade pri kliknutí na *zatvárací krížik okna* sa vytvorí udalosť, ktoré môžeme v prípade potreby spracovať. V tomto prípade ukončíme pygame a aj celý program.
 
 ```python
-	window.fill(WHITE)
+    window.fill(WHITE)
     # Tu patrí kód na kreslenie
     pygame.display.update()
     timer.tick(30)
@@ -97,7 +97,7 @@ ____
 
 [Obrázky bežiaceho panáčika](https://opengameart.org/content/stick-man-runner) som pre ľahšie načítanie poskladal do jedného obrázku (*sprite sheet*), podobajúceho sa na filmový pás (**Kód patrí do časti #1**)
 
-![Sprite sheet](https://github.com/etakerim/HackermanGang/raw/master/Inšpirácia/sprity/stickmen.png "Spritesheet") 
+![Sprite sheet](https://github.com/etakerim/HackermanGang/raw/master/Inšpirácia/sprity/stickmen.png "Spritesheet")
 
 
 ```python
@@ -106,12 +106,12 @@ FRAME_WIDTH = 80
 FRAME_HEIGHT = 100
 
 spritesheet = pygame.image.load('stickmen.png').convert_alpha()
-sx, sy, sw, sh = spritesheet.get_rect() 
+sx, sy, sw, sh = spritesheet.get_rect()
 ```
 
 Grafiku načítame zo súboru a spracujeme na rýchlejšie kreslenie pomocou `convert_alpha()`.  Ide o obrázok s rozmermi 960 x 100, kde je 12 snímok, každá s rozmermi 100 x 80.
 
-Na rozkúskovanie snímkov animácie budeme potrebovať šírku, lepšie povedané dĺžku, celého "pásu" - `sw`. Žiaľ vieme získať len rozmery celého obrázka naraz, ostatné nás preto zatiaľ nebudú zaujímať. 
+Na rozkúskovanie snímkov animácie budeme potrebovať šírku, lepšie povedané dĺžku, celého "pásu" - `sw`. Žiaľ vieme získať len rozmery celého obrázka naraz, ostatné nás preto zatiaľ nebudú zaujímať.
 
 Poznačíme si aj počet snímkov animácie a rozmery snímku, aby sme nepoužívali nič nehovoriace čísla.
 
@@ -121,13 +121,13 @@ window.blit(spritesheet, (0, 0))
 for x in range(0, sw, FRAME_WIDTH):
     pygame.draw.line(window, (0, 0, 0), (x, 0), (x, FRAME_HEIGHT))
     # Kreslenie čiary: okno, čierna farba, začiatok a koniec (x, y)
-    
+
 pygame.display.update()
 ```
 
-Tieto riadky vo výsledku nepoužijeme, ale poslúžia dobre na odtestovanie a ilustráciu rozsekávania. 
+Tieto riadky vo výsledku nepoužijeme, ale poslúžia dobre na odtestovanie a ilustráciu rozsekávania.
 
-`blit` si môžete predstaviť, ako lepenie dvoch kúskov papiera na seba pri tvorení koláže. Na okno (výkres) nalepíme celý spritesheet (novinový ústrižok) na súradnice x = 0,  y = 0 . Bystrejší si všimnú, že sa nezmestí do okna, ale to nám momentálne neprekáža. Za každým snímkom nakreslíme čiernu vertkálnu čiaru oddelujúcu snímky. Takto si overíme, či ich môžeme rozdeliť, tak ako sme si mysleli. 
+`blit` si môžete predstaviť, ako lepenie dvoch kúskov papiera na seba pri tvorení koláže. Na okno (výkres) nalepíme celý spritesheet (novinový ústrižok) na súradnice x = 0,  y = 0 . Bystrejší si všimnú, že sa nezmestí do okna, ale to nám momentálne neprekáža. Za každým snímkom nakreslíme čiernu vertkálnu čiaru oddelujúcu snímky. Takto si overíme, či ich môžeme rozdeliť, tak ako sme si mysleli.
 
 ```python
 animation = []
@@ -166,7 +166,7 @@ FRAME_WIDTH = 80
 FRAME_HEIGHT = 100
 
 spritesheet = pygame.image.load('stickmen.png').convert_alpha()
-sx, sy, sw, sh = spritesheet.get_rect() 
+sx, sy, sw, sh = spritesheet.get_rect()
 
 animation = []
 
@@ -190,9 +190,9 @@ window.blit(animation[index], (0, 0))
 index += 1
 ```
 
-To hovorí, že do ľavého horného rohu umiestníme, to čo sa nachádza na aktuálnom políčku animácie, ktoré nám povie premenná `index`. V cykle ju preto zakaždým zväčšíme o 1, aby sme dostali vždy ďalšiu snímku. 
+To hovorí, že do ľavého horného rohu umiestníme, to čo sa nachádza na aktuálnom políčku animácie, ktoré nám povie premenná `index`. V cykle ju preto zakaždým zväčšíme o 1, aby sme dostali vždy ďalšiu snímku.
 
-Keď však skusíme spustiť takýto program panáčik zmizne po zlomku sekundy alebo ho vôbec neuvidíme. Čo viac, vypľuvne to na nás chybu `IndexError: list index out of range`. Čo teraz? 
+Keď však skusíme spustiť takýto program panáčik zmizne po zlomku sekundy alebo ho vôbec neuvidíme. Čo viac, vypľuvne to na nás chybu `IndexError: list index out of range`. Čo teraz?
 
 Animácia má len 12 snímkov a herný cyklus sa vykonáva 30-krát za sekundu, z toho vyplýva, že `i` bude za malú chvílu oveľa viac ako 12. Riešenie je zmeniť výpočet indexu nasledujúceho políčka. Naivne sa dá takto:
 
@@ -235,7 +235,7 @@ x2 = 0
 pygame.draw.circle(window, (255, 0, 0), (x, 100), 50)
 pygame.draw.circle(window, (255, 0, 0), (x, 100), 50)
 pygame.draw.circle(window, (255, 0, 0), (x, 100), 50)
-x += 5 
+x += 5
 x1 += 10
 x2 += 15
 ```
@@ -248,7 +248,7 @@ ____
 
 Okrem toho môžeme neskôr chcieť načítať iné sprity a vytvoriť interakcie medzi nimi. V pythone slúžia na vytvorenie vlastných "bytostí" **triedy (class) **. Pozrime sa na to, čo má mať taký sprite.
 
-##### Sprite 
+##### Sprite
 
 * Pozícia na obrazovke - x, y
 * Obrázok alebo snímky animácie - animation
@@ -273,7 +273,7 @@ class Sprite:
 
 Vytvorili sme si triedu `Sprite`, ktorá pri tvorbe konkrétneho objektu potrebuje vedieť informácie súvisiace s jej polohou a vizuálnym znázornením. `__init__` predstavuje špeciálnu funkciu (v žargóne [OOP](https://sk.wikipedia.org/wiki/Objektovo_orientovan%C3%A9_programovanie): metódu), ktorú každá trieda, berúca hodnoty "zvonka", musí obsahovať.
 
-Zložitejšie je porozumieť ako do toho zapadá `self` (v iných programovacích jazykov: `this`). Zastupuje objekt danej triedy (jedinca daného živočíšneho druhu), ktorý aktuálne vykonáva danú funkciu. Čiže na priblíženie: 
+Zložitejšie je porozumieť ako do toho zapadá `self` (v iných programovacích jazykov: `this`). Zastupuje objekt danej triedy (jedinca daného živočíšneho druhu), ktorý aktuálne vykonáva danú funkciu. Čiže na priblíženie:
 
 ```python
 # Vytvoríme dva objekty triedy (typu) Sprite
