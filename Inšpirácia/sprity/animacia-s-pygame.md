@@ -6,7 +6,7 @@
 
 ____
 
-Pri tvorbe hier nám zvyčajne nestačia len čiary, kruhy a obdĺžniky, ale chceme použiť pripravené obrázky na otexturovanie vykreslovaných predmetov. Pokiaľ ide o zložitejšiu scénu potrebujeme tiež upravovať jej súčasti nezávisle na sebe. Použitým *spritov* (malé rastrové obrázky) môžeme napríklad animovať vodu, oheň, trávu, pohyby hráča a iných postáv.
+Pri tvorbe hier nám zvyčajne nestačia len čiary, kruhy a obdĺžniky, ale chceme použiť pripravené obrázky na otexturovanie vykreslovaných predmetov. Pokiaľ ide o zložitejšiu scénu potrebujeme tiež upravovať jej súčasti nezávisle na sebe. Použitím *spritov* (malé rastrové obrázky) môžeme napríklad animovať vodu, oheň, trávu, pohyby hráča a iných postáv.
 
 Ukážeme si ako vytvoriť ilúziu bežiacich panáčikov. Najlepšie nám na tento účel poslúži programovací jazyk **Python** a balíček **pygame**. Návod ako všetko nainštalovať na svoj počítač nájdete na [webstránke pygamu](https://www.pygame.org/wiki/GettingStarted).
 
