@@ -8,13 +8,13 @@ ____
 
 Pri tvorbe hier nám zvyčajne nestačia len čiary, kruhy a obdĺžniky, ale chceme použiť pripravené obrázky na otexturovanie vykreslovaných predmetov. Pokiaľ ide o zložitejšiu scénu potrebujeme tiež upravovať jej súčasti nezávisle na sebe. Použitím *spritov* (malé rastrové obrázky) môžeme napríklad animovať vodu, oheň, trávu, pohyby hráča a iných postáv.
 
-Ukážeme si ako vytvoriť ilúziu bežiacich panáčikov. Najlepšie nám na tento účel poslúži programovací jazyk **Python** a balíček **pygame**. Návod ako všetko nainštalovať na svoj počítač nájdete na [webstránke pygamu](https://www.pygame.org/wiki/GettingStarted).
+Ukážeme si ako vytvoriť ilúziu bežiacich panáčikov. Najlepšie nám na tento účel poslúži programovací jazyk **Python** a balíček **pygame**. Návod ako si všetko nainštalovať na svoj počítač nájdete na [webstránke pygamu](https://www.pygame.org/wiki/GettingStarted).
 
 ____
 
 ## Vytvorenie okna
 
-Keďže pygame tvorí veľmi tenkú vrstvu nad grafických systémom počítača, používa sa niekedy ťažkopádne, ale časom si všimnete podobností a zapamätáte si dôležité funkcie, ktoré budete dookola používať. Najprv ukážem celý kód pre vytvorenie okna a potom si ho rozoberieme (Na miesta označené komentárom #číslo vložíme neskôr dalšie riadky súvisiace s animáciou):
+Keďže pygame tvorí veľmi tenkú vrstvu nad grafickým systémom počítača, používa sa niekedy ťažkopádne, ale časom si všimnete podobností a zapamätáte si dôležité funkcie, ktoré budete dookola používať. Najprv ukážem celý kód pre vytvorenie okna a potom si ho rozoberieme (Na miesta označené komentárom #číslo vložíme neskôr dalšie riadky súvisiace s animáciou):
 
 ```python
 import pygame
@@ -80,7 +80,7 @@ while True:
             sys.exit()
 ```
 
-Dostávame sa k začiatku [**herného cyklu**](https://gamedevelopment.tutsplus.com/articles/gamedev-glossary-what-is-the-game-loop--gamedev-2469). Pozostáva z dvoch častí. Aktuálne sa sústredíme na **spracovanie udalostí**. Pri kliknutí myšou, stlačení klávesy alebo v tomto prípade pri kliknutí na *zatvárací krížik okna* sa vytvorí udalosť, ktoré môžeme v prípade potreby spracovať. V tomto prípade ukončíme pygame a aj celý program.
+Dostávame sa k začiatku [**herného cyklu**](https://gamedevelopment.tutsplus.com/articles/gamedev-glossary-what-is-the-game-loop--gamedev-2469). Pozostáva z dvoch častí. Aktuálne sa sústredíme na **spracovanie udalostí**. Pri kliknutí myšou, stlačení klávesy alebo v tomto prípade pri kliknutí na *zatvárací krížik okna* sa vytvorí udalosť, ktorú môžeme v prípade potreby spracovať. V tomto prípade ukončíme pygame a aj celý program.
 
 ```python
     window.fill(WHITE)
@@ -89,7 +89,7 @@ Dostávame sa k začiatku [**herného cyklu**](https://gamedevelopment.tutsplus.
     timer.tick(30)
 ```
 
-Druhá časť cyklu (pozor stále odsadená tabulátorom!) sa stará o **kreslenie na obrazovku**. Medzi vymazaním okna na farbu pozadia (bielu) a poslaním zmien na obrazovku vložíme neskôr kreslenie spritu. Nakoniec nám časovač vytvorí také oneskorenie, aby sme mali 30 FPS medzi prekresleniami.
+Druhá časť cyklu (pozor stále odsadená tabulátorom!) sa stará o **kreslenie na obrazovku**. Medzi vymazaním okna na farbu pozadia (bielu) a poslaním zmien grafickej krate vložíme neskôr kreslenie spritu. Nakoniec nám časovač vytvorí také oneskorenie, aby sme mali 30 FPS medzi prekresleniami.
 
 ____
 
@@ -113,7 +113,7 @@ Grafiku načítame zo súboru a spracujeme na rýchlejšie kreslenie pomocou `co
 
 Na rozkúskovanie snímkov animácie budeme potrebovať šírku, lepšie povedané dĺžku, celého "pásu" - `sw`. Žiaľ vieme získať len rozmery celého obrázka naraz, ostatné nás preto zatiaľ nebudú zaujímať.
 
-Poznačíme si aj počet snímkov animácie a rozmery snímku, aby sme nepoužívali nič nehovoriace čísla.
+Poznačíme si aj počet snímkov animácie a rozmery snímku, aby sme v kóde nepoužívali nič nehovoriace čísla.
 
 ```python
 window.blit(spritesheet, (0, 0))
