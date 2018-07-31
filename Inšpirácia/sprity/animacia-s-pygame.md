@@ -1,10 +1,10 @@
-## Animácia sekvencie obrázkov v Pythone
+# Animácia sekvencie obrázkov v Pythone
 
 *Autor: Miroslav Hájek, 2018-07-31*
 
 *Inšpirácia: Daniel Shiffman ([Video - Animated Sprites](https://thecodingtrain.com/CodingChallenges/111-animated-sprite.html))*
 
-____________________________________________________________________________________________________________________________________________________________________________________________________
+____
 
 Pri tvorbe hier nám zvyčajne nestačia len čiary, kruhy a obdĺžniky, ale chceme použiť pripravené obrázky na otexturovanie vykreslovaných predmetov. Pokiaľ ide o zložitejšiu scénu potrebujeme tiež upravovať jej súčasti nezávisle na sebe. Použitým *spritov* (malé rastrové obrázky) môžeme napríklad animovať vodu, oheň, trávu, pohyby hráča a iných postáv.
 
@@ -12,7 +12,7 @@ Ukážeme si ako vytvoriť ilúziu bežiacich panáčikov. Najlepšie nám na te
 
 ____
 
-#### Vytvorenie okna
+## Vytvorenie okna
 
 Keďže pygame tvorí veľmi tenkú vrstvu nad grafických systémom počítača, používa sa niekedy ťažkopádne, ale časom si všimnete podobností a zapamätáte si dôležité funkcie, ktoré budete dookola používať. Najprv ukážem celý kód pre vytvorenie okna a potom si ho rozoberieme (Na miesta označené komentárom #číslo vložíme neskôr dalšie riadky súvisiace s animáciou):
 
@@ -93,11 +93,11 @@ Druhá časť cyklu (pozor stále odsadená tabulátorom!) sa stará o **kreslen
 
 ____
 
-#### Načítanie obrázkov do zoznamu
+## Načítanie obrázkov do zoznamu
 
 [Obrázky bežiaceho panáčika](https://opengameart.org/content/stick-man-runner) som pre ľahšie načítanie poskladal do jedného obrázku (*sprite sheet*), podobajúceho sa na filmový pás (**Kód patrí do časti #1**)
 
-![Sprite sheet][https://github.com/etakerim/HackermanGang/blob/master/In%C5%A1pir%C3%A1cia/sprity/stickmen.png] 
+![Sprite sheet][https://github.com/etakerim/HackermanGang/raw/master/Inšpirácia/sprity/stickmen.png "Spritesheet"] 
 
 
 
@@ -134,7 +134,7 @@ Tieto riadky vo výsledku nepoužijeme, ale poslúžia dobre na odtestovanie a i
 animation = []
 
 for x in range(0, sw, FRAME_WIDTH):
-    frame = pygame.Surface((FRAME_WIDTH, FRAME_HEIGHT), pygame.SRCALPHA)    
+    frame = pygame.Surface((FRAME_WIDTH, FRAME_HEIGHT), pygame.SRCALPHA)
     frame.blit(spritesheet, (0, 0), pygame.Rect(x, 0, FRAME_WIDTH, FRAME_HEIGHT))
     animation.append(frame)
 ```
@@ -172,14 +172,14 @@ sx, sy, sw, sh = spritesheet.get_rect()
 animation = []
 
 for x in range(0, sw, FRAME_WIDTH):
-    frame = pygame.Surface((FRAME_WIDTH, FRAME_HEIGHT), pygame.SRCALPHA)    
+    frame = pygame.Surface((FRAME_WIDTH, FRAME_HEIGHT), pygame.SRCALPHA)
     frame.blit(spritesheet, (0, 0), pygame.Rect(x, 0, FRAME_WIDTH, FRAME_HEIGHT))
     animation.append(frame)
 ```
 
 ____
 
-#### Bežiaci panáčik ožíva
+## Bežiaci panáčik ožíva
 
 Nášho panáčika uvidíme bežať na mieste, keď pridáme nasledujúce:
 
@@ -213,7 +213,7 @@ Keď vezmeme zvyšok po delení vždy sa budeme točiť akokeby na hodinových r
 
 ___
 
-#### Pohybujúce sa guličky
+## Pohybujúce sa guličky
 
 Vrátime sa k jednoduchšiemu príkladu guličky, ktorá sa posúva z horizontálne po obrazovke zľava doprava:
 
@@ -310,14 +310,14 @@ def animate(self):
 	self.index += self.speed
     self.x += self.speed * 5
     if self.x > WIDTH:
-    	self.x = -FRAME_WIDTH   
+    	self.x = -FRAME_WIDTH
 ```
 
 Po prejdení za pravý okraj obrazovky sa panáčik objaví za ľavým okrajom a beží ďalej doprava. Okrem toho zväčšujeme x súradnicu o päť násobok rýchlosti.  Konštanta je zvolená z kozmetických dôvodov, aby rýchlosť behu vyzerala prirodzene k posunu doprava.
 
 ____
 
-#### Šprint s vetrom o závod
+## Šprint s vetrom o závod
 
 Obráťme pozornosť späť k týmto príkazom v hlavnom programe:
 
@@ -350,11 +350,11 @@ for runner in runners:
 
 ____
 
-#### Zapojte predstavivosť
+## Zapojte predstavivosť
 
 Celý funkčný program nájdete na githube spolu s použitou grafikou, ktoré musíte umiestniť do jedného priečinka: [Odkaz na projektík](https://github.com/etakerim/HackermanGang/tree/master/In%C5%A1pir%C3%A1cia/sprity).
 
 Skúste využiť znalosti, ktoré ste nadobudli čítaním tohto článku. Vytvorte si vlastnú minihru a  zakomponujte animované textúry, ktoré vylepšia vizuálnu kvalitu vášho diela.
 
-![Bežíme!](https://github.com/etakerim/HackermanGang/blob/master/In%C5%A1pir%C3%A1cia/sprtty/animation.gif)
+![Bežíme!](https://github.com/etakerim/HackermanGang/raw/master/Inšpirácia/sprity/animation.gif "Bežíme!")
 
