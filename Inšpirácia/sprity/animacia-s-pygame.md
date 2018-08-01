@@ -263,7 +263,7 @@ Preveďme teraz náš rozbor spritu do pythonu:
 
 ```python
 class Sprite:
-	def __init__(self, x, y, speed, animation):
+    def __init__(self, x, y, speed, animation):
         self.x = x
         self.y = y
         self.speed = speed
@@ -306,7 +306,7 @@ Reálny index pre snímok animácie si vypočítame zvlášť, pretože ak sa pa
 
 ```python
 def animate(self):
-	self.index += self.speed
+    self.index += self.speed
     self.x += self.speed * 5
     if self.x > WIDTH:
     	self.x = -FRAME_WIDTH
