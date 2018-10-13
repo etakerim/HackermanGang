@@ -1,8 +1,7 @@
 # Hackerman Gang 
 Programátorský krúžok založený na rozvíjanie logického a programátorského myslenia u študentov
 so zámerom vzájomného vzdelávania sa a vytvárania kolaboratívnych projektov.
-- šk.r. 2016/2017 =  18.1.2017 - 14.6.2017
-- šk.r. 2017/2018 =  17.10.2017 - trvá     
+- Založené dňa: 18.1.2017     
 
 
 ### Informácie pre účastníkov
@@ -12,6 +11,9 @@ skúsiť pozrieť: testovac.ksp.sk
 
 V *`Cheatsheety`* sú zhrnuté všetky príkazy hodiace sa na osvieženie pamäte.
 Na praktické príklady a znázornenia sa hodí aj python.input.sk
+
+V *`Prednášky`* sú pdf-ká prezentácií k prednáškam, ktoré boli realizované na
+stretnutiach krúžku alebo vrámci seminárov.
 
 V *`Riešenia`* sú všetky zadané príklady preriešené. Doplňované sú však
 postupne, až keď ich vyriešia účastnicí. Ak ste aj stratili vaše projekty tak 
