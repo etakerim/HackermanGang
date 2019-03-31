@@ -70,8 +70,22 @@ def panel_nastrojov():
     c = okno.create_rectangle(btn_xtop, 6 * btn_w, btn_xtop + btn_w, 7 * btn_w)
     okno.create_oval(btn_xtop + pad, 6 * btn_w + pad,
                      btn_xtop + btn_w - pad, 7 * btn_w - pad, fill='black')
+    colorwheel(300, 200, 80)
 
     return [a, b, c]
+
+
+def colorwheel(x, y, radius):
+    from colorsys import hsv_to_rgb
+    from math import sin, cos, radians
+
+    for angle in range(360):            # hue
+        for distance in range(radius):  # saturation
+            pos_x = x + distance * cos(radians(angle))
+            pos_y = y - distance * sin(radians(angle))
+            r, g, b = hsv_to_rgb(angle / 360, distance / radius, 1)
+            c = '#{:02x}{:02x}{:02x}'.format(int(r * 255), int(g * 255), int(b * 255))
+            okno.create_rectangle(pos_x, pos_y, pos_x+1, pos_y+1, fill=c, outline=c)
 
 
 W, H = 800, 500
