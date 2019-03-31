@@ -1,7 +1,19 @@
+# http://effbot.org/tkinterbook/canvas.htm
+# http://infohost.nmt.edu/tcc/help/pubs/tkinter/web/canvas-methods.html
+
 import tkinter
 import math
 import colorsys
 from PIL import Image, ImageTk
+
+
+def ulozit_svg():
+    with open('drawing.csv', 'w') as svg:
+        for tvar in okno.find_withtag('shape'):
+            typ = okno.type(tvar)
+            pos = [int(x) for x in okno.coords(tvar)]
+            color = okno.itemcget(tvar, 'fill')
+            print(typ, *pos, color, file=svg)
 
 
 def klik_mysou(mys):
@@ -35,6 +47,9 @@ def vyber_nastroj(mys):
             vypln = farba
             okno.itemconfig(je_vypln, fill='black')
 
+    if je_stlacene(uloz_btn, mys):
+        ulozit_svg()
+
     color = vyber_farbu(mys)
     if color:
         farba = '#{:02x}{:02x}{:02x}'.format(*color)
@@ -49,13 +64,16 @@ def vytvor_utvar(mys):
     klik = not klik
     if klik:
         if mod == CIARA:
-            utvar = okno.create_line(mys.x, mys.y, mys.x, mys.y, fill=farba)
+            utvar = okno.create_line(mys.x, mys.y, mys.x, mys.y, fill=farba,
+                                     tags='shape')
         elif mod == OBDLZNIK:
             utvar = okno.create_rectangle(mys.x, mys.y, mys.x, mys.y,
-                                          outline=farba, fill=vypln)
+                                          outline=farba, fill=vypln,
+                                          tags='shape')
         elif mod == ELIPSA:
             utvar = okno.create_oval(mys.x, mys.y, mys.x, mys.y,
-                                     outline=farba, fill=vypln)
+                                     outline=farba, fill=vypln,
+                                     tags='shape')
     else:
         pos = okno.coords(utvar)
         okno.coords(utvar, pos[0], pos[1], mys.x, mys.y)
@@ -75,6 +93,8 @@ def zmen_utvar(klavesa):
 
     elif klavesa.char in ['0', '1', '2', '3']:
         farba = paleta[int(klavesa.char)]
+        if vypln:
+            vypln = farba
 
     elif klavesa.char == 'v':
         if vypln:
@@ -86,7 +106,7 @@ def zmen_utvar(klavesa):
 
 
 def panel_nastrojov():
-    global color_preview
+    global color_preview, uloz_btn, je_vypln, uloz_btn
 
     okno.create_line(naradie_x, 0, naradie_x, H, width=2)
 
@@ -105,19 +125,20 @@ def panel_nastrojov():
     c = okno.create_rectangle(btn_xtop, 6 * btn_w, btn_xtop + btn_w, 7 * btn_w)
     okno.create_oval(btn_xtop + pad, 6 * btn_w + pad,
                      btn_xtop + btn_w - pad, 7 * btn_w - pad, fill='black')
-    color_preview = okno.create_rectangle(btn_xtop, 8 * btn_w,
-                                          btn_xtop + btn_w, 9 * btn_w, fill=farba)
+
+    color_preview = okno.create_rectangle(btn_xtop, 10 * btn_w,
+                                          btn_xtop + btn_w, 11 * btn_w, fill=farba)
+    pad = naradie_w // 8
+    uloz_btn = okno.create_rectangle(naradie_x + pad, 8 * btn_w,
+                                     W - pad, 9 * btn_w)
+    okno.create_text(btn_xtop, int(8.5 * btn_w), text='Uložiť')
+
+    btn_w = 20
+    okno.create_text(naradie_x + pad + int(2.5 * btn_w), int(17.5 * btn_w), text='Výplň')
+    je_vypln = okno.create_rectangle(naradie_x + pad, 17 * btn_w,
+                                     naradie_x + pad + btn_w, 18 * btn_w)
 
     return [a, b, c]
-
-
-def tlacidlo_vyplne():
-    btn_w = 20
-    pad = naradie_w // 8
-    okno.create_text(naradie_x + pad + int(2.5 * btn_w),
-                     int(14.5 * btn_w), text='Výplň')
-    return okno.create_rectangle(naradie_x + pad, 14 * btn_w,
-                                 naradie_x + pad + btn_w, 15 * btn_w)
 
 
 def farebna_paleta(r):
@@ -174,14 +195,15 @@ okno = tkinter.Canvas(width=W, height=H, bg='white')
 okno.pack()
 okno.bind('<Button-1>', klik_mysou)
 okno.bind('<Motion>', animuj_utvar)
-okno.bind_all("<Key>", zmen_utvar)
+okno.bind_all('<Key>', zmen_utvar)
 
 naradie_w = 100
 naradie_x = W - naradie_w
 btn_w = 30
 color_preview = None
+je_vypln = None
+uloz_btn = None
 tlacidla = panel_nastrojov()
-je_vypln = tlacidlo_vyplne()
 
 tlacidlo_vyber = tlacidla[0]
 okno.itemconfig(tlacidlo_vyber, fill='#ccc')
