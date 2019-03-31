@@ -128,6 +128,14 @@ def zmen_utvar(klavesa):
             okno.itemconfig(je_vypln, fill='black')
 
 
+def zmaz_utvar(mys):
+    predmet = okno.find_closest(mys.x, mys.y)
+    tags = okno.gettags(predmet)
+    if predmet and tags:
+        if 'shape' in tags:
+            okno.delete(predmet)
+
+
 def panel_nastrojov():
     global color_preview, uloz_btn, je_vypln, uloz_btn
 
@@ -218,6 +226,7 @@ svgfilename = input('Zadajte vstupný súbor alebo stlačte <Enter> pre nový: '
 okno = tkinter.Canvas(width=W, height=H, bg='white')
 okno.pack()
 okno.bind('<Button-1>', klik_mysou)
+okno.bind('<Button-3>', zmaz_utvar)
 okno.bind('<Motion>', animuj_utvar)
 okno.bind_all('<Key>', zmen_utvar)
 
