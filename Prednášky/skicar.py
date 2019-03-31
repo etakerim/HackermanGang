@@ -11,17 +11,29 @@ def klik_mysou(mys):
         vytvor_utvar(mys)
 
 
+def je_stlacene(tlacidlo, mys):
+    pos = okno.coords(tlacidlo)
+    return (mys.x >= pos[0] and mys.x <= pos[2] and
+            mys.y >= pos[1] and mys.y <= pos[3])
+
+
 def vyber_nastroj(mys):
     global mod, tlacidlo_vyber, farba, vypln
 
     for m, btn in zip(nastroje, tlacidla):
-        pos = okno.coords(btn)
-        if (mys.x >= pos[0] and mys.x <= pos[2] and
-                mys.y >= pos[1] and mys.y <= pos[3]):
+        if je_stlacene(btn, mys):
             mod = m
             okno.itemconfig(tlacidlo_vyber, fill='white')
             okno.itemconfig(btn, fill='#ccc')
             tlacidlo_vyber = btn
+
+    if je_stlacene(je_vypln, mys):
+        if vypln:
+            vypln = None
+            okno.itemconfig(je_vypln, fill='white')
+        else:
+            vypln = farba
+            okno.itemconfig(je_vypln, fill='black')
 
     color = vyber_farbu(mys)
     if color:
@@ -55,7 +67,7 @@ def animuj_utvar(mys):
 
 
 def zmen_utvar(klavesa):
-    global mod, farba, vypln
+    global mod, farba, vypln, je_vypln
 
     if klavesa.char in nastroje:
         mod = klavesa.char
@@ -66,8 +78,10 @@ def zmen_utvar(klavesa):
     elif klavesa.char == 'v':
         if vypln:
             vypln = None
+            okno.itemconfig(je_vypln, fill='white')
         else:
             vypln = farba
+            okno.itemconfig(je_vypln, fill='black')
 
 
 def panel_nastrojov():
@@ -90,6 +104,15 @@ def panel_nastrojov():
                      btn_xtop + btn_w - pad, 7 * btn_w - pad, fill='black')
 
     return [a, b, c]
+
+
+def tlacidlo_vyplne():
+    btn_w = 20
+    pad = naradie_w // 8
+    okno.create_text(naradie_x + pad + int(2.5 * btn_w),
+                     int(12.5 * btn_w), text='Výplň')
+    return okno.create_rectangle(naradie_x + pad, 12 * btn_w,
+                                 naradie_x + pad + btn_w, 13 * btn_w)
 
 
 def farebna_paleta(r):
@@ -151,6 +174,7 @@ okno.bind_all("<Key>", zmen_utvar)
 naradie_w = 100
 naradie_x = W - naradie_w
 tlacidla = panel_nastrojov()
+je_vypln = tlacidlo_vyplne()
 
 tlacidlo_vyber = tlacidla[0]
 okno.itemconfig(tlacidlo_vyber, fill='#ccc')
