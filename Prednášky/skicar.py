@@ -12,8 +12,31 @@ def ulozit_svg():
         for tvar in okno.find_withtag('shape'):
             typ = okno.type(tvar)
             pos = [int(x) for x in okno.coords(tvar)]
-            color = okno.itemcget(tvar, 'fill')
-            print(typ, *pos, color, file=svg)
+            outline = ''
+            if typ != 'line':
+                outline = okno.itemcget(tvar, 'outline')
+            fill = okno.itemcget(tvar, 'fill')
+            print(typ, *pos, fill, outline, file=svg)
+
+
+def nacitat_svg(nazov):
+    with open(nazov, 'r') as svg:
+        for cmd in svg:
+            settings = cmd.split()
+            if len(settings) >= 6:
+
+                fill = None
+                if len(settings) == 7:
+                    fill = settings[6]
+                outline = settings[5]
+
+                pos = [int(x) for x in settings[1:5]]
+                if settings[0] == 'line':
+                   okno.create_line(*pos, fill=outline)
+                elif settings[0] == 'rectangle':
+                   okno.create_rectangle(*pos, outline=outline, fill=fill)
+                elif settings[0] == 'oval':
+                   okno.create_oval(*pos, outline=outline, fill=fill)
 
 
 def klik_mysou(mys):
@@ -191,6 +214,7 @@ paleta = ['black', 'red', 'green', 'blue']
 farba = paleta[0]
 vypln = None
 
+svgfilename = input('Zadajte vstupný súbor alebo stlačte <Enter> pre nový: ')
 okno = tkinter.Canvas(width=W, height=H, bg='white')
 okno.pack()
 okno.bind('<Button-1>', klik_mysou)
@@ -210,5 +234,8 @@ okno.itemconfig(tlacidlo_vyber, fill='#ccc')
 
 img = farebna_paleta(40)
 colorwheel = okno.create_image(naradie_x + naradie_w // 2, H - 80, image=img)
+
+if svgfilename:
+    nacitat_svg(svgfilename)
 
 okno.mainloop()
