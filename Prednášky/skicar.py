@@ -9,9 +9,11 @@ def vytvor_utvar(mys):
         if mod == CIARA:
             utvar = okno.create_line(mys.x, mys.y, mys.x, mys.y, fill=farba)
         elif mod == OBDLZNIK:
-            utvar = okno.create_rectangle(mys.x, mys.y, mys.x, mys.y, outline=farba)
+            utvar = okno.create_rectangle(mys.x, mys.y, mys.x, mys.y,
+                                          outline=farba, fill=vypln)
         elif mod == ELIPSA:
-            utvar = okno.create_oval(mys.x, mys.y, mys.x, mys.y, outline=farba)
+            utvar = okno.create_oval(mys.x, mys.y, mys.x, mys.y,
+                                     outline=farba, fill=vypln)
     else:
         pos = okno.coords(utvar)
         okno.coords(utvar, pos[0], pos[1], mys.x, mys.y)
@@ -24,7 +26,7 @@ def animuj_utvar(mys):
 
 
 def zmen_utvar(klavesa):
-    global mod, farba
+    global mod, farba, vypln
 
     if klavesa.char in [CIARA, OBDLZNIK, ELIPSA]:
         mod = klavesa.char
@@ -32,10 +34,16 @@ def zmen_utvar(klavesa):
     elif klavesa.char in ['0', '1', '2', '3']:
         farba = paleta[int(klavesa.char)]
 
+    elif klavesa.char == '@':
+        if vypln:
+            vypln = None
+        else:
+            vypln = farba
+
 
 W, H = 800, 500
 klik = False
-utvar = 0
+utvar = None
 
 CIARA = 'c'
 OBDLZNIK = 'o'
@@ -44,6 +52,7 @@ mod = CIARA
 
 paleta = ['black', 'red', 'green', 'blue']
 farba = paleta[0]
+vypln = None
 
 okno = tkinter.Canvas(width=W, height=H, bg='white')
 okno.pack()
