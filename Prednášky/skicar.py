@@ -70,22 +70,28 @@ def panel_nastrojov():
     c = okno.create_rectangle(btn_xtop, 6 * btn_w, btn_xtop + btn_w, 7 * btn_w)
     okno.create_oval(btn_xtop + pad, 6 * btn_w + pad,
                      btn_xtop + btn_w - pad, 7 * btn_w - pad, fill='black')
-    colorwheel(300, 200, 80)
 
     return [a, b, c]
 
 
-def colorwheel(x, y, radius):
-    from colorsys import hsv_to_rgb
+def colorwheel(r):
     from math import sin, cos, radians
+    from PIL import Image, ImageTk
 
-    for angle in range(360):            # hue
-        for distance in range(radius):  # saturation
-            pos_x = x + distance * cos(radians(angle))
-            pos_y = y - distance * sin(radians(angle))
-            r, g, b = hsv_to_rgb(angle / 360, distance / radius, 1)
-            c = '#{:02x}{:02x}{:02x}'.format(int(r * 255), int(g * 255), int(b * 255))
-            okno.create_rectangle(pos_x, pos_y, pos_x+1, pos_y+1, fill=c, outline=c)
+    img = Image.new('HSV', (2 * r, 2 * r), color=(0, 0, 255))
+    pixels = img.load()
+
+    angle = 0
+    while angle <= 360:             # hue
+        for distance in range(r):   # saturation
+            pos_x = r + distance * cos(radians(angle))
+            pos_y = r + distance * sin(radians(angle))
+            h = int(255 * (angle / 360))
+            s = int(255 * (distance / r))
+            pixels[pos_x, pos_y] = (h, s, 255)
+        angle += 0.3
+
+    return ImageTk.PhotoImage(image=img)
 
 
 W, H = 800, 500
@@ -114,5 +120,8 @@ tlacidla = panel_nastrojov()
 
 tlacidlo_vyber = tlacidla[0]
 okno.itemconfig(tlacidlo_vyber, fill='#ccc')
+
+wheel = colorwheel(40)
+okno.create_image(naradie_x + naradie_w // 2, H - 80, image=wheel)
 
 okno.mainloop()
