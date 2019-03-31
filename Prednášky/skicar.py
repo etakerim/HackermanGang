@@ -2,7 +2,7 @@ import tkinter
 
 
 def vytvor_utvar(mys):
-    global klik, utvar, mod, tlacidlo_vyber, farba
+    global klik, utvar, mod, tlacidlo_vyber, farba, vypln
 
     if mys.x >= naradie_x:
         for m, btn in zip(nastroje, tlacidla):
@@ -18,6 +18,8 @@ def vytvor_utvar(mys):
         if f:
             rgb = (int(f[0] * 255), int(f[1] * 255), int(f[2] * 255))
             farba = '#{:02x}{:02x}{:02x}'.format(rgb[0], rgb[1], rgb[2])
+            if vypln:
+                vypln = farba
         return
 
     klik = not klik
