@@ -2,7 +2,18 @@ import tkinter
 
 
 def vytvor_utvar(mys):
-    global klik, utvar
+    global klik, utvar, mod, tlacidlo_vyber
+
+    if mys.x >= naradie_x:
+        for m, btn in zip(nastroje, tlacidla):
+            pos = okno.coords(btn)
+            if (mys.x >= pos[0] and mys.x <= pos[2] and
+                    mys.y >= pos[1] and mys.y <= pos[3]):
+                mod = m
+                okno.itemconfig(tlacidlo_vyber, fill='white')
+                okno.itemconfig(btn, fill='#ccc')
+                tlacidlo_vyber = btn
+        return
 
     klik = not klik
     if klik:
@@ -28,7 +39,7 @@ def animuj_utvar(mys):
 def zmen_utvar(klavesa):
     global mod, farba, vypln
 
-    if klavesa.char in [CIARA, OBDLZNIK, ELIPSA]:
+    if klavesa.char in nastroje:
         mod = klavesa.char
 
     elif klavesa.char in ['0', '1', '2', '3']:
@@ -41,6 +52,28 @@ def zmen_utvar(klavesa):
             vypln = farba
 
 
+def panel_nastrojov():
+    okno.create_line(naradie_x, 0, naradie_x, H, width=2)
+
+    btn_w = int(0.3 * naradie_w)
+    pad = int(0.25 * btn_w)
+    btn_xtop = naradie_x + naradie_w // 2 - btn_w // 2
+
+    a = okno.create_rectangle(btn_xtop, 2 * btn_w,
+                              btn_xtop + btn_w, 3 * btn_w)
+    okno.create_line(btn_xtop + pad, 2 * btn_w + pad,
+                     btn_xtop + btn_w - pad, 3 * btn_w - pad, width=2)
+    b = okno.create_rectangle(btn_xtop, 4 * btn_w,
+                              btn_xtop + btn_w, 5 * btn_w)
+    okno.create_rectangle(btn_xtop + pad, 4 * btn_w + pad,
+                          btn_xtop + btn_w - pad, 5 * btn_w - pad, fill='black')
+    c = okno.create_rectangle(btn_xtop, 6 * btn_w, btn_xtop + btn_w, 7 * btn_w)
+    okno.create_oval(btn_xtop + pad, 6 * btn_w + pad,
+                     btn_xtop + btn_w - pad, 7 * btn_w - pad, fill='black')
+
+    return [a, b, c]
+
+
 W, H = 800, 500
 klik = False
 utvar = None
@@ -49,6 +82,7 @@ CIARA = 'c'
 OBDLZNIK = 'o'
 ELIPSA = 'e'
 mod = CIARA
+nastroje = [CIARA, OBDLZNIK, ELIPSA]
 
 paleta = ['black', 'red', 'green', 'blue']
 farba = paleta[0]
@@ -59,4 +93,12 @@ okno.pack()
 okno.bind('<Button-1>', vytvor_utvar)
 okno.bind('<Motion>', animuj_utvar)
 okno.bind_all("<Key>", zmen_utvar)
+
+naradie_w = 100
+naradie_x = W - naradie_w
+tlacidla = panel_nastrojov()
+
+tlacidlo_vyber = tlacidla[0]
+okno.itemconfig(tlacidlo_vyber, fill='#ccc')
+
 okno.mainloop()
