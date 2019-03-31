@@ -18,7 +18,7 @@ def je_stlacene(tlacidlo, mys):
 
 
 def vyber_nastroj(mys):
-    global mod, tlacidlo_vyber, farba, vypln
+    global mod, tlacidlo_vyber, farba, vypln, color_preview
 
     for m, btn in zip(nastroje, tlacidla):
         if je_stlacene(btn, mys):
@@ -38,6 +38,7 @@ def vyber_nastroj(mys):
     color = vyber_farbu(mys)
     if color:
         farba = '#{:02x}{:02x}{:02x}'.format(*color)
+        okno.itemconfig(color_preview, fill=farba)
         if vypln:
             vypln = farba
 
@@ -85,6 +86,8 @@ def zmen_utvar(klavesa):
 
 
 def panel_nastrojov():
+    global color_preview
+
     okno.create_line(naradie_x, 0, naradie_x, H, width=2)
 
     btn_w = int(0.3 * naradie_w)
@@ -102,6 +105,8 @@ def panel_nastrojov():
     c = okno.create_rectangle(btn_xtop, 6 * btn_w, btn_xtop + btn_w, 7 * btn_w)
     okno.create_oval(btn_xtop + pad, 6 * btn_w + pad,
                      btn_xtop + btn_w - pad, 7 * btn_w - pad, fill='black')
+    color_preview = okno.create_rectangle(btn_xtop, 8 * btn_w,
+                                          btn_xtop + btn_w, 9 * btn_w, fill=farba)
 
     return [a, b, c]
 
@@ -110,9 +115,9 @@ def tlacidlo_vyplne():
     btn_w = 20
     pad = naradie_w // 8
     okno.create_text(naradie_x + pad + int(2.5 * btn_w),
-                     int(12.5 * btn_w), text='Výplň')
-    return okno.create_rectangle(naradie_x + pad, 12 * btn_w,
-                                 naradie_x + pad + btn_w, 13 * btn_w)
+                     int(14.5 * btn_w), text='Výplň')
+    return okno.create_rectangle(naradie_x + pad, 14 * btn_w,
+                                 naradie_x + pad + btn_w, 15 * btn_w)
 
 
 def farebna_paleta(r):
@@ -173,6 +178,8 @@ okno.bind_all("<Key>", zmen_utvar)
 
 naradie_w = 100
 naradie_x = W - naradie_w
+btn_w = 30
+color_preview = None
 tlacidla = panel_nastrojov()
 je_vypln = tlacidlo_vyplne()
 
