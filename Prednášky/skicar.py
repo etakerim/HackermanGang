@@ -12,6 +12,12 @@ def vytvor_utvar(mys):
         okno.coords(utvar, pos[0], pos[1], mys.x, mys.y)
 
 
+def animuj_utvar(mys):
+    if klik:
+        pos = okno.coords(utvar)
+        okno.coords(utvar, pos[0], pos[1], mys.x, mys.y)
+
+
 W, H = 800, 500
 klik = False
 utvar = 0
@@ -19,4 +25,5 @@ utvar = 0
 okno = tkinter.Canvas(width=W, height=H, bg='white')
 okno.pack()
 okno.bind('<Button-1>', vytvor_utvar)
+okno.bind('<Motion>', animuj_utvar)
 okno.mainloop()
