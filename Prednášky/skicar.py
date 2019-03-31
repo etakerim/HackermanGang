@@ -2,7 +2,7 @@ import tkinter
 
 
 def vytvor_utvar(mys):
-    global klik, utvar, mod, tlacidlo_vyber
+    global klik, utvar, mod, tlacidlo_vyber, farba
 
     if mys.x >= naradie_x:
         for m, btn in zip(nastroje, tlacidla):
@@ -13,6 +13,11 @@ def vytvor_utvar(mys):
                 okno.itemconfig(tlacidlo_vyber, fill='white')
                 okno.itemconfig(btn, fill='#ccc')
                 tlacidlo_vyber = btn
+
+        f = vyber_farbu(mys.x, mys.y, naradie_x + naradie_w // 2, H - 80, 40)
+        if f:
+            rgb = (int(f[0] * 255), int(f[1] * 255), int(f[2] * 255))
+            farba = '#{:02x}{:02x}{:02x}'.format(rgb[0], rgb[1], rgb[2])
         return
 
     klik = not klik
@@ -74,7 +79,7 @@ def panel_nastrojov():
     return [a, b, c]
 
 
-def colorwheel(r):
+def farebna_paleta(r):
     from math import sin, cos, radians
     from PIL import Image, ImageTk
 
@@ -92,6 +97,21 @@ def colorwheel(r):
         angle += 0.3
 
     return ImageTk.PhotoImage(image=img)
+
+
+def vyber_farbu(mys_x, mys_y, x, y, r):
+    from colorsys import hsv_to_rgb
+    from math import hypot, atan2, degrees
+
+    a0 = degrees(atan2(mys_y - y, mys_x - x))
+    if a0 < 0:
+        a0 += 360
+
+    r0 = hypot(mys_x - x, mys_y - y)
+    if r0 > r:
+        return False
+    else:
+        return hsv_to_rgb(a0 / 360, r0 / r, 1)
 
 
 W, H = 800, 500
@@ -121,7 +141,7 @@ tlacidla = panel_nastrojov()
 tlacidlo_vyber = tlacidla[0]
 okno.itemconfig(tlacidlo_vyber, fill='#ccc')
 
-wheel = colorwheel(40)
-okno.create_image(naradie_x + naradie_w // 2, H - 80, image=wheel)
+img = farebna_paleta(40)
+colorwheel = okno.create_image(naradie_x + naradie_w // 2, H - 80, image=img)
 
 okno.mainloop()
