@@ -1,26 +1,37 @@
 import tkinter
+import math
+import colorsys
+from PIL import Image, ImageTk
+
+
+def klik_mysou(mys):
+    if mys.x >= naradie_x:
+        vyber_nastroj(mys)
+    else:
+        vytvor_utvar(mys)
+
+
+def vyber_nastroj(mys):
+    global mod, tlacidlo_vyber, farba, vypln
+
+    for m, btn in zip(nastroje, tlacidla):
+        pos = okno.coords(btn)
+        if (mys.x >= pos[0] and mys.x <= pos[2] and
+                mys.y >= pos[1] and mys.y <= pos[3]):
+            mod = m
+            okno.itemconfig(tlacidlo_vyber, fill='white')
+            okno.itemconfig(btn, fill='#ccc')
+            tlacidlo_vyber = btn
+
+    color = vyber_farbu(mys)
+    if color:
+        farba = '#{:02x}{:02x}{:02x}'.format(*color)
+        if vypln:
+            vypln = farba
 
 
 def vytvor_utvar(mys):
-    global klik, utvar, mod, tlacidlo_vyber, farba, vypln
-
-    if mys.x >= naradie_x:
-        for m, btn in zip(nastroje, tlacidla):
-            pos = okno.coords(btn)
-            if (mys.x >= pos[0] and mys.x <= pos[2] and
-                    mys.y >= pos[1] and mys.y <= pos[3]):
-                mod = m
-                okno.itemconfig(tlacidlo_vyber, fill='white')
-                okno.itemconfig(btn, fill='#ccc')
-                tlacidlo_vyber = btn
-
-        f = vyber_farbu(mys.x, mys.y, naradie_x + naradie_w // 2, H - 80, 40)
-        if f:
-            rgb = (int(f[0] * 255), int(f[1] * 255), int(f[2] * 255))
-            farba = '#{:02x}{:02x}{:02x}'.format(rgb[0], rgb[1], rgb[2])
-            if vypln:
-                vypln = farba
-        return
+    global klik, utvar
 
     klik = not klik
     if klik:
@@ -52,7 +63,7 @@ def zmen_utvar(klavesa):
     elif klavesa.char in ['0', '1', '2', '3']:
         farba = paleta[int(klavesa.char)]
 
-    elif klavesa.char == '@':
+    elif klavesa.char == 'v':
         if vypln:
             vypln = None
         else:
@@ -82,17 +93,15 @@ def panel_nastrojov():
 
 
 def farebna_paleta(r):
-    from math import sin, cos, radians
-    from PIL import Image, ImageTk
-
     img = Image.new('HSV', (2 * r, 2 * r), color=(0, 0, 255))
     pixels = img.load()
 
     angle = 0
     while angle <= 360:             # hue
         for distance in range(r):   # saturation
-            pos_x = r + distance * cos(radians(angle))
-            pos_y = r + distance * sin(radians(angle))
+            a = math.radians(angle)
+            pos_x = r + distance * math.cos(a)
+            pos_y = r + distance * math.sin(a)
             h = int(255 * (angle / 360))
             s = int(255 * (distance / r))
             pixels[pos_x, pos_y] = (h, s, 255)
@@ -101,19 +110,22 @@ def farebna_paleta(r):
     return ImageTk.PhotoImage(image=img)
 
 
-def vyber_farbu(mys_x, mys_y, x, y, r):
-    from colorsys import hsv_to_rgb
-    from math import hypot, atan2, degrees
+def vyber_farbu(mys):
+    pos = okno.bbox(colorwheel)
+    r = (pos[2] - pos[0]) // 2
+    x = pos[0] + r
+    y = pos[1] + r
 
-    a0 = degrees(atan2(mys_y - y, mys_x - x))
+    a0 = math.degrees(math.atan2(mys.y - y, mys.x - x))
     if a0 < 0:
         a0 += 360
 
-    r0 = hypot(mys_x - x, mys_y - y)
+    r0 = math.hypot(mys.x - x, mys.y - y)
     if r0 > r:
         return False
     else:
-        return hsv_to_rgb(a0 / 360, r0 / r, 1)
+        rgb = colorsys.hsv_to_rgb(a0 / 360, r0 / r, 1)
+        return (int(rgb[0] * 255), int(rgb[1] * 255), int(rgb[2] * 255))
 
 
 W, H = 800, 500
@@ -132,7 +144,7 @@ vypln = None
 
 okno = tkinter.Canvas(width=W, height=H, bg='white')
 okno.pack()
-okno.bind('<Button-1>', vytvor_utvar)
+okno.bind('<Button-1>', klik_mysou)
 okno.bind('<Motion>', animuj_utvar)
 okno.bind_all("<Key>", zmen_utvar)
 
