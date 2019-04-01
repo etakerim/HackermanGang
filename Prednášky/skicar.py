@@ -1,6 +1,6 @@
 # http://effbot.org/tkinterbook/canvas.htm
 # http://infohost.nmt.edu/tcc/help/pubs/tkinter/web/canvas-methods.html
-
+# https://validator.w3.org/
 import tkinter
 import math
 import colorsys
@@ -56,42 +56,40 @@ def svg_ulozit():
             }
             ET.SubElement(svg, 'ellipse', attrib=vlastnosti)
 
+    # xml = ET.ElementTree(svg)
+    # xml.write('drawing.svg')
     xml = ET.tostring(svg)
     dom = DOM.parseString(xml)
     with open('drawing.svg', 'w') as f:
         print(dom.toprettyxml(), file=f)
 
 
-def csv_ulozit():
-    with open('drawing.csv', 'w') as svg:
-        for tvar in okno.find_withtag('shape'):
-            typ = okno.type(tvar)
-            pos = [int(x) for x in okno.coords(tvar)]
-            outline = ''
-            if typ != 'line':
-                outline = okno.itemcget(tvar, 'outline')
-            fill = okno.itemcget(tvar, 'fill')
-            print(typ, *pos, fill, outline, file=svg)
+def svg_nacitat(nazov):
+    xml = ET.parse(nazov)
+    svg = xml.getroot()
 
-
-def csv_nacitat(nazov):
-    with open(nazov, 'r') as svg:
-        for cmd in svg:
-            settings = cmd.split()
-            if len(settings) >= 6:
-
-                fill = None
-                if len(settings) == 7:
-                    fill = settings[6]
-                outline = settings[5]
-
-                pos = [int(x) for x in settings[1:5]]
-                if settings[0] == 'line':
-                    okno.create_line(*pos, fill=outline)
-                elif settings[0] == 'rectangle':
-                    okno.create_rectangle(*pos, outline=outline, fill=fill)
-                elif settings[0] == 'oval':
-                    okno.create_oval(*pos, outline=outline, fill=fill)
+    for cmd in svg:
+        s = cmd.attrib
+        print(cmd.tag, cmd.attrib)
+        if cmd.tag == 'line':
+            okno.create_line(int(s['x1']), int(s['y1']),
+                             int(s['x2']), int(s['y2']),
+                             fill=s['stroke'], width=s['stroke-width'])
+        elif cmd.tag == 'rect':
+            x2 = int(s['x']) + int(s['width'])
+            y2 = int(s['y']) + int(s['height'])
+            fill = s['fill'] if s['fill'] != 'none' else None
+            okno.create_rectangle(int(s['x']), int(s['y']), x2, y2,
+                                  fill=fill, outline=s['stroke'],
+                                  width=s['stroke-width'])
+        elif cmd.tag == 'ellipse':
+            x1 = int(s['cx']) - int(s['rx'])
+            y1 = int(s['cy']) - int(s['ry'])
+            x2 = int(s['cx']) + int(s['rx'])
+            y2 = int(s['cy']) + int(s['ry'])
+            fill = s['fill'] if s['fill'] != 'none' else None
+            okno.create_oval(x1, y1, x2, y2, outline=s['stroke'],
+                             fill=fill, width=s['stroke-width'])
 
 
 def klik_mysou(mys):
@@ -301,6 +299,6 @@ img = farebna_paleta(40)
 colorwheel = okno.create_image(naradie_x + naradie_w // 2, H - 80, image=img)
 
 if svgfilename:
-    csv_nacitat(svgfilename)
+    svg_nacitat(svgfilename)
 
 okno.mainloop()
