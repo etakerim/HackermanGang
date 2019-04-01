@@ -7,7 +7,55 @@ import colorsys
 from PIL import Image, ImageTk
 
 
-def ulozit_svg():
+def svg_ulozit():
+    with open('drawing.svg', 'w') as svg:
+        print('<?xml version="1.0" encoding="utf-8"?>', file=svg)
+        print((f'<svg xmlns="http://www.w3.org/2000/svg" '
+               f'width="{W - naradie_w}" height="{H}">'), file=svg)
+
+        for tvar in okno.find_withtag('shape'):
+            typ = okno.type(tvar)
+            pos = [int(x) for x in okno.coords(tvar)]
+            fill = None
+            stroke = None
+
+            if typ == 'line':
+                wstroke = int(float(okno.itemcget(tvar, 'width')))
+                print((f'\t<line x1="{pos[0]}" y1="{pos[1]}" '
+                       f'x2="{pos[2]}" y2="{pos[3]}" '
+                       f'stroke-width="{wstroke}"'),
+                      file=svg, end='')
+                stroke = okno.itemcget(tvar, 'fill')
+
+            elif typ == 'rectangle':
+                print((f'\t<rect x="{pos[0]}" y="{pos[1]}" '
+                       f'width="{pos[2]}" height="{pos[3]}"'),
+                      file=svg, end='')
+                stroke = okno.itemcget(tvar, 'outline')
+                fill = okno.itemcget(tvar, 'fill') or 'none'
+
+            elif typ == 'oval':
+                print(pos)
+                rx = (pos[2] - pos[0]) // 2
+                ry = (pos[3] - pos[1]) // 2
+                cx = pos[0] + rx
+                cy = pos[1] + ry
+                print(cx, cy, rx, ry)
+                print((f'\t<ellipse cx="{cx}" cy="{cy}" '
+                       f'rx="{rx}" ry="{ry}"'), file=svg, end='')
+                stroke = okno.itemcget(tvar, 'outline')
+                fill = okno.itemcget(tvar, 'fill') or 'none'
+
+            if stroke:
+                print(f' stroke="{stroke}"', file=svg, end='')
+            if fill:
+                print(f' fill="{fill}"', file=svg, end='')
+            print(f' />', file=svg)
+
+        print('</svg>', file=svg)
+
+
+def csv_ulozit():
     with open('drawing.csv', 'w') as svg:
         for tvar in okno.find_withtag('shape'):
             typ = okno.type(tvar)
@@ -19,7 +67,7 @@ def ulozit_svg():
             print(typ, *pos, fill, outline, file=svg)
 
 
-def nacitat_svg(nazov):
+def csv_nacitat(nazov):
     with open(nazov, 'r') as svg:
         for cmd in svg:
             settings = cmd.split()
@@ -32,11 +80,11 @@ def nacitat_svg(nazov):
 
                 pos = [int(x) for x in settings[1:5]]
                 if settings[0] == 'line':
-                   okno.create_line(*pos, fill=outline)
+                    okno.create_line(*pos, fill=outline)
                 elif settings[0] == 'rectangle':
-                   okno.create_rectangle(*pos, outline=outline, fill=fill)
+                    okno.create_rectangle(*pos, outline=outline, fill=fill)
                 elif settings[0] == 'oval':
-                   okno.create_oval(*pos, outline=outline, fill=fill)
+                    okno.create_oval(*pos, outline=outline, fill=fill)
 
 
 def klik_mysou(mys):
@@ -71,7 +119,8 @@ def vyber_nastroj(mys):
             okno.itemconfig(je_vypln, fill='black')
 
     if je_stlacene(uloz_btn, mys):
-        ulozit_svg()
+        svg_ulozit()
+        # csv_ulozit()
 
     color = vyber_farbu(mys)
     if color:
@@ -245,6 +294,6 @@ img = farebna_paleta(40)
 colorwheel = okno.create_image(naradie_x + naradie_w // 2, H - 80, image=img)
 
 if svgfilename:
-    nacitat_svg(svgfilename)
+    csv_nacitat(svgfilename)
 
 okno.mainloop()
