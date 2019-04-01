@@ -4,55 +4,62 @@
 import tkinter
 import math
 import colorsys
+import xml.etree.ElementTree as ET
+import xml.dom.minidom as DOM
 from PIL import Image, ImageTk
 
 
 def svg_ulozit():
-    with open('drawing.svg', 'w') as svg:
-        print('<?xml version="1.0" encoding="utf-8"?>', file=svg)
-        print((f'<svg xmlns="http://www.w3.org/2000/svg" '
-               f'width="{W - naradie_w}" height="{H}">'), file=svg)
+    size = {
+        'width': str(W - naradie_w),
+        'height': str(H)
+    }
+    svg = ET.Element('svg', attrib=size)
 
-        for tvar in okno.find_withtag('shape'):
-            typ = okno.type(tvar)
-            pos = [int(x) for x in okno.coords(tvar)]
-            fill = None
-            stroke = None
+    for tvar in okno.find_withtag('shape'):
+        typ = okno.type(tvar)
+        pos = [int(x) for x in okno.coords(tvar)]
+        wstroke = str(int(float(okno.itemcget(tvar, 'width'))))
+        fill = okno.itemcget(tvar, 'fill') or 'none'
 
-            if typ == 'line':
-                wstroke = int(float(okno.itemcget(tvar, 'width')))
-                print((f'\t<line x1="{pos[0]}" y1="{pos[1]}" '
-                       f'x2="{pos[2]}" y2="{pos[3]}" '
-                       f'stroke-width="{wstroke}"'),
-                      file=svg, end='')
-                stroke = okno.itemcget(tvar, 'fill')
+        if typ == 'line':
+            vlastnosti = {
+                'x1': str(pos[0]), 'y1': str(pos[1]),
+                'x2': str(pos[2]), 'y2': str(pos[3]),
+                'stroke-width': wstroke,
+                'stroke': fill
+            }
+            ET.SubElement(svg, 'line', attrib=vlastnosti)
 
-            elif typ == 'rectangle':
-                print((f'\t<rect x="{pos[0]}" y="{pos[1]}" '
-                       f'width="{pos[2]}" height="{pos[3]}"'),
-                      file=svg, end='')
-                stroke = okno.itemcget(tvar, 'outline')
-                fill = okno.itemcget(tvar, 'fill') or 'none'
+        elif typ == 'rectangle':
+            vlastnosti = {
+                'x': str(pos[0]), 'y': str(pos[1]),
+                'width': str(pos[2] - pos[0]), 'height': str(pos[3] - pos[1]),
+                'stroke-width': wstroke,
+                'stroke': okno.itemcget(tvar, 'outline'),
+                'fill': fill
+            }
+            ET.SubElement(svg, 'rect', attrib=vlastnosti)
 
-            elif typ == 'oval':
-                print(pos)
-                rx = (pos[2] - pos[0]) // 2
-                ry = (pos[3] - pos[1]) // 2
-                cx = pos[0] + rx
-                cy = pos[1] + ry
-                print(cx, cy, rx, ry)
-                print((f'\t<ellipse cx="{cx}" cy="{cy}" '
-                       f'rx="{rx}" ry="{ry}"'), file=svg, end='')
-                stroke = okno.itemcget(tvar, 'outline')
-                fill = okno.itemcget(tvar, 'fill') or 'none'
+        elif typ == 'oval':
+            rx = (pos[2] - pos[0]) // 2
+            ry = (pos[3] - pos[1]) // 2
+            cx = pos[0] + rx
+            cy = pos[1] + ry
 
-            if stroke:
-                print(f' stroke="{stroke}"', file=svg, end='')
-            if fill:
-                print(f' fill="{fill}"', file=svg, end='')
-            print(f' />', file=svg)
+            vlastnosti = {
+                'cx': str(cx), 'cy': str(cy),
+                'rx': str(rx), 'ry': str(ry),
+                'stroke-width': wstroke,
+                'stroke': okno.itemcget(tvar, 'outline'),
+                'fill': fill
+            }
+            ET.SubElement(svg, 'ellipse', attrib=vlastnosti)
 
-        print('</svg>', file=svg)
+    xml = ET.tostring(svg)
+    dom = DOM.parseString(xml)
+    with open('drawing.svg', 'w') as f:
+        print(dom.toprettyxml(), file=f)
 
 
 def csv_ulozit():
