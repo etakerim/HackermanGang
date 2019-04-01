@@ -6,7 +6,29 @@ import math
 import colorsys
 import xml.etree.ElementTree as ET
 import xml.dom.minidom as DOM
-from PIL import Image, ImageTk
+from PIL import Image, ImageDraw, ImageTk
+
+
+def raster_ulozit():
+    img = Image.new('RGB', (W - naradie_w, H), color=(255, 255, 255))
+    draw = ImageDraw.Draw(img)
+
+    for tvar in okno.find_withtag('shape'):
+        typ = okno.type(tvar)
+        pos = okno.coords(tvar)
+        fill = okno.itemcget(tvar, 'fill')
+        if not fill:
+            fill = None
+
+        if typ == 'line':
+            draw.line(pos, fill=fill)
+        elif typ == 'rectangle':
+            outline = okno.itemcget(tvar, 'outline')
+            draw.rectangle(pos, outline=outline, fill=fill)
+        elif typ == 'oval':
+            outline = okno.itemcget(tvar, 'outline')
+            draw.ellipse(pos, outline=outline, fill=fill)
+        img.save('drawing.png')
 
 
 def svg_ulozit():
@@ -125,7 +147,7 @@ def vyber_nastroj(mys):
 
     if je_stlacene(uloz_btn, mys):
         svg_ulozit()
-        # csv_ulozit()
+        raster_ulozit()
 
     color = vyber_farbu(mys)
     if color:
