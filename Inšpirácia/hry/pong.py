@@ -1,127 +1,131 @@
-import tkinter
+import pygame
 
 
-fps = 30
-
-def game_draw():
-    canvas.delete('all')
-    # Nakresli loptu
-    global ball_x, ball_y, ball_dir
-    # Sieť
-    i = 0
-    for y in range(0, height, height // 21):
-        if i % 2:
-            color = 'black'
-        else:
-            color = 'white'
-        i += 1
-        canvas.create_rectangle(width // 2 - 5, y,
-                                width // 2 + 5, y + height // 2,
-                                fill=color, outline=color)
-    # Skóre
-    canvas.create_text(width // 4, 20, text=str(score[0]), fill='white')
-    canvas.create_text(width // 4 * 3, 20, text=str(score[1]), fill='white')
-
-    # Paddle
-    canvas.create_rectangle(paddle1_x, paddle1_y,
-                            paddle1_x + paddle_w, paddle1_y + paddle_h,
-                            fill='white', outline='white')
-    canvas.create_rectangle(paddle2_x, paddle2_y,
-                            paddle2_x + paddle_w, paddle2_y + paddle_h,
-                            fill='white', outline='white')
-
-    # Lopta
-    canvas.create_rectangle(ball_x, ball_y,
-                            ball_x + ball_a, ball_y + ball_a,
-                            fill='white', outline='white')
-
-    # Pozri kolíziu s raketami a reaguj
-    if (ball_x <= paddle1_x + paddle_w
-        and ball_y >= paddle1_y
-        and ball_y <= paddle1_y + paddle_h):
-        ball_dir[0] = 1
-
-    elif (ball_x + ball_a >= paddle2_x
-        and ball_y >= paddle2_y
-        and ball_y <= paddle2_y + paddle_h):
-        ball_dir[0] = -1
-
-    # Pohni loptu
-    ball_x += ball_speed * ball_dir[0]
-    ball_y += ball_speed * ball_dir[1]
-
-    # Odraz loptu
-    if ball_y <= 0 or ball_y + ball_a >= height:
-        ball_dir[1] *= -1
-
-    # Započítaj skóre a resetuj
-    if ball_x <= 0:
-        score[1] += 1
-        ball_x = width // 2
-        ball_y = height // 2
-        ball_dir = [1, 1]
-
-    elif ball_x + ball_a >= width:
-        score[0] += 1
-        ball_x = width // 2
-        ball_y = height // 2
-        ball_dir = [-1, 1]
-
-    canvas.update()
-    canvas.after(1000 // fps, game_draw)
-
-def move_up_1(e):
-    global paddle1_y
-    paddle1_y -= paddle_speed
-    if paddle1_y <= 0:
-        paddle1_y = 0
-
-def move_down_1(e):
-    global paddle1_y
-    paddle1_y += paddle_speed
-    if paddle1_y + paddle_h >= height:
-        paddle1_y = height - paddle_h
+BLACK = (0, 0, 0)
+WHITE = (255, 255, 255)
 
 
-def move_up_2(e):
-    global paddle2_y
-    paddle2_y -= paddle_speed
-    if paddle2_y <= 0:
-        paddle2_y = 0
+class Ball:
+    def __init__(self, x, y, speed):
+        self.box = pygame.Rect(x, y, 15, 15)
+        self.v = pygame.math.Vector2((speed, speed))
+        # Add random start angle, player, that lost - move in oposite direction
+        self.box_copy = self.box.copy()
+
+    def reset(self):
+        self.box = self.box_copy.copy()
+
+    def redraw(self, window):
+        self.box.x += self.v.x
+        self.box.y += self.v.y
+        pygame.draw.rect(window, WHITE, self.box)
 
 
-def move_down_2(e):
-    global paddle2_y
-    paddle2_y += paddle_speed
-    if paddle2_y + paddle_h >= height:
-        paddle2_y = height - paddle_h
+class Player:
+    def __init__(self, x, y, w, h):
+        self.score = 0
+        self.box = pygame.Rect(x, y, w, h)
+        self.box_copy = self.box.copy()
+
+    def reset(self):
+        self.box = self.box_copy.copy()
+
+    def move(self, window, step):
+        self.box.y += step
+        if self.box.y < 0:
+            self.box.y = 0
+        elif self.box.y + self.box.h > window.get_height():
+            self.box.y = window.get_height() - self.box.h
+
+    def redraw(self, window):
+        pygame.draw.rect(window, WHITE, self.box)
 
 
-width, height = 700, 500
-canvas = tkinter.Canvas(width=width, height=height, bg='black')
-canvas.pack()
+class Game:
+    def __init__(self, name, w, h):
+        pygame.init()
+        self.window = pygame.display.set_mode((w, h))
+        pygame.display.set_caption(name)
+        self.running = True
+        self.ball = Ball(w // 2, h // 2, 5)
+        self.player1 = Player(20, h // 2, 10, 80)
+        self.player2 = Player(w - 30, h // 2, 10, 80)
+        self.field = pygame.Rect(20, 0, w - 30, h)
 
-score = [0, 0]
-ball_a = 12
-ball_speed = 10
-ball_x = width // 2
-ball_y = height // 2
-ball_dir = [1, 1]
+    def reset(self):
+        self.ball.reset()
+        self.player1.reset()
+        self.player2.reset()
+
+    def bounce(self):
+        if (self.ball.box.colliderect(self.player1.box) or
+                self.ball.box.colliderect(self.player2.box)):
+            self.ball.v.x *= -1
+
+        if (self.ball.box.y <= self.field.y or
+                self.ball.box.y + self.ball.box.h >= self.window.get_height()):
+            self.ball.v.y *= -1
+
+    def score(self):
+        compare = lambda p: p.box.x
+        left = min(self.player1, self.player2, key=compare)
+        right = max(self.player1, self.player2, key=compare)
+
+        if self.ball.box.x < left.box.x + left.box.w:
+            right.score += 1
+            print(right.score)
+            self.reset()
+        elif self.ball.box.x > right.box.x:
+            left.score += 1
+            print(left.score)
+            self.reset()
+
+    def net(self):
+        a = 5
+        marker = 35
+        w = self.window.get_width()
+        for y in range(0, self.window.get_height(), 2 * marker):
+            pygame.draw.rect(self.window, WHITE, (w // 2 - a, y, 2 * a, marker))
+
+    def on_event(self, event):
+        if event.type == pygame.QUIT:
+            self.running = False
+
+    def on_render(self):
+        step = 8
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_w]:
+            self.player1.move(self.window, -step)
+        elif keys[pygame.K_s]:
+            self.player1.move(self.window, step)
+
+        if keys[pygame.K_UP]:
+            self.player2.move(self.window, -step)
+        elif keys[pygame.K_DOWN]:
+            self.player2.move(self.window, step)
+
+        self.window.fill(BLACK)
+        self.net()
+        self.player1.redraw(self.window)
+        self.player2.redraw(self.window)
+        self.ball.redraw(self.window)
+        self.bounce()
+        self.score()
 
 
-paddle_w = 10
-paddle_h = 100
-paddle1_x = 20
-paddle1_y = height // 2
-paddle2_x = width - paddle_w - paddle1_x
-paddle2_y = height // 2
-paddle_speed = 60
+    def run(self):
+        timer = pygame.time.Clock()
 
-canvas.bind_all('s', move_up_1)
-canvas.bind_all('x', move_down_1)
-canvas.bind_all('k', move_up_2)
-canvas.bind_all('m', move_down_2)
+        while self.running:
+            for event in pygame.event.get():
+                self.on_event(event)
 
-game_draw()
+            self.on_render()
+            pygame.display.update()
+            timer.tick(60)
+        pygame.quit()
 
-canvas.mainloop()
+
+if __name__ == '__main__':
+    game = Game('Pong', 800, 480)
+    game.run()
