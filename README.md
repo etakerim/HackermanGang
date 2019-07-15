@@ -1,31 +1,28 @@
 # Hackerman Gang 
-Programátorský krúžok založený na rozvíjanie logického a programátorského myslenia u študentov
-so zámerom vzájomného vzdelávania sa a vytvárania kolaboratívnych projektov.
-- Založené dňa: 18.1.2017     
+**Programátorský krúžok** založený na rozvíjanie logického a programátorského myslenia u študentov strednej školy so zámeraním na vzájomné vzdelávania sa, či vytváranie kreatívnych tímových projektov. Iniciatíva vznikla *18.1.2017* na *Gymnáziu, Hubeného* 23 a s menšími prestávkami pokračuje naďalej.
+
+### Nová sezóna
+
+Školský rok 2019 / 2020 pokračujeme ako krúžková záujmová činnosť v podobe workshopov a samostatnom/skupinovom rozvoji.  Hlavné temátické okruhy budú:
+
+- Základy programovania (Python)
+- Grafika na obrazovke (Pygame)
+- Algoritmy & Dátové štruktúry
+- Spracovanie dát z internetu
+- Micropython - programovateľná elektronika
+
+Viac informácii čoskoro ...
 
 
-### Informácie pre účastníkov
-V *`Zadania-Ulohy`* nájdete všetky úlohy, ktoré si môžete
-postupne riešiť na stretnutiach i vo svojom voľnom čase. Okrem nich môžete
-skúsiť pozrieť: testovac.ksp.sk
+### Kde nájsť čo hľadáte
+*`Úlohy`* - zadania na programy rôznej obtiažnosti, ktoré sú vhodné k postupnému riešeniu na stretnutiach i mimo nich. Pre väčší rozhľad pozrite na [Testovač KSP](https://testovac.ksp.sk) alebo [Programujeme v Pythone](http://python.input.sk/).
 
-V *`Cheatsheety`* sú zhrnuté všetky príkazy hodiace sa na osvieženie pamäte.
-Na praktické príklady a znázornenia sa hodí aj python.input.sk
+*`Riešenia`* - snaha o optimálne riešenia zadané príkladov s vysvetlujúcimi komentármi. Doplňované sú postupne a stále je snaha o ich lepšiu organizáciu a popis. 
 
-V *`Prednášky`* sú pdf-ká prezentácií k prednáškam, ktoré boli realizované na
-stretnutiach krúžku alebo vrámci seminárov.
+*`Príkazovníky`* - zhrnuté príkazy v prehľadných tabuľkach s popismi hodiace sa na osvieženie pamäte.
 
-V *`Riešenia`* sú všetky zadané príklady preriešené. Doplňované sú však
-postupne, až keď ich vyriešia účastnicí. Ak ste aj stratili vaše projekty tak 
-nazúfajte, tu máte odrazový mostík k vlastným modifikáciam.
+*`Prednášky`* - prezentácie spolu s dodatočnými materiálmi k prednáškam zo stretnutí alebo seminárov.
 
-V priečinku *`Inšpirácia`* je množstvo malých skriptov, ktoré som napísal pre
-pobavenie, experimentovanie a myslím, že vám môžu poslúžiť práve k nápadom na
-veci, ktoré chcete odskúšať.
+*`Inšpirácia`* - množstvo malých skriptov aj komplexnejších aplikácii slúžiacich k rozširovaniu obzorov a nápadom na odskúšanie.
 
-*`2016_17`* sú preriešené príklady z predchadajúceho školského roku určené pre
-začiatočníkov - Úlohy v podobe pdf budú spracované čoskoro. 
-
-### Ciele
-Teším sa, keď budem môcť vytvoriť priečinok *`Študentské-projekty`* a napliť ho
-kreatívnymi experimentmy zo stredoškolského prostredia pre inšpiráciu iných.
+<img src="https://i.kym-cdn.com/entries/icons/original/000/021/807/4d7.png" width="300">
