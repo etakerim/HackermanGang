@@ -97,7 +97,7 @@ ____
 
 [Obrázky bežiaceho panáčika](https://opengameart.org/content/stick-man-runner) som pre ľahšie načítanie poskladal do jedného obrázku (*sprite sheet*), podobajúceho sa na filmový pás (**Kód patrí do časti #1**)
 
-![Sprite sheet](https://github.com/etakerim/HackermanGang/raw/master/Inšpirácia/sprity/stickmen.png "Spritesheet")
+![Sprite sheet](https://raw.githubusercontent.com/etakerim/HackermanGang/master/N%C3%A1vody/Sprites/stickmen.png "Spritesheet")
 
 
 ```python
@@ -351,9 +351,7 @@ ____
 
 ## Zapojte predstavivosť
 
-Celý funkčný program nájdete na githube spolu s použitou grafikou, ktoré musíte umiestniť do jedného priečinka: [Odkaz na projektík](https://github.com/etakerim/HackermanGang/tree/master/In%C5%A1pir%C3%A1cia/sprity).
-
 Skúste využiť znalosti, ktoré ste nadobudli čítaním tohto článku. Vytvorte si vlastnú minihru a  zakomponujte animované textúry, ktoré vylepšia vizuálnu kvalitu vášho diela.
 
-![Bežíme!](https://github.com/etakerim/HackermanGang/raw/master/Inšpirácia/sprity/animation.gif "Bežíme!")
+![Bežíme!](https://raw.githubusercontent.com/etakerim/HackermanGang/master/N%C3%A1vody/Sprites/animation.gif "Bežíme!")
 
