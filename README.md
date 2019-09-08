@@ -1,17 +1,5 @@
 # Hackerman Gang 
-**Programátorský krúžok** založený na rozvíjanie logického a programátorského myslenia u študentov strednej školy so zámeraním na vzájomné vzdelávania sa, či vytváranie kreatívnych tímových projektov. Iniciatíva vznikla *18.1.2017* na *Gymnáziu, Hubeného* 23 a s menšími prestávkami pokračuje naďalej.
-
-### Nová sezóna
-
-Školský rok 2019 / 2020 pokračujeme ako krúžková záujmová činnosť v podobe workshopov a samostatnom/skupinovom rozvoji.  Hlavné temátické okruhy budú:
-
-- Základy programovania (Python)
-- Grafika na obrazovke (Pygame)
-- Algoritmy & Dátové štruktúry
-- Spracovanie dát z internetu
-- Micropython - programovateľná elektronika
-
-Viac informácii čoskoro ...
+**Programátorský krúžok** založený na rozvíjanie logického a programátorského myslenia u študentov strednej školy so zámeraním na vzájomné vzdelávania sa, či vytváranie kreatívnych tímových projektov. Iniciatíva vznikla 18.1.2017 na Gymnáziu, Hubeného 23 a je momentálne pozastavená.
 
 
 ### Kde nájsť čo hľadáte
