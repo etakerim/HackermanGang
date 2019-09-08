@@ -11,14 +11,14 @@ ____
 ### Obsah
 
 * [Predslov](#predslov)
-* [I. Premenné](#i-premenn-)
-* [Ⅱ. Podmienky](#--podmienky)
-* [Ⅲ. Cykly](#--cykly)
-* [Ⅳ. Náhodné čísla](#--n-hodn----sla)
-* [Ⅴ. Reťazce a zoznamy](#--re-azce-a-zoznamy)
-* [Ⅵ. Súbory](#--s-bory)
-* [Ⅶ. Funkcie](#--funkcie)
-* [Zdroje a literatúra](#zdroje-a-literat-ra)
+* [I. Premenné](#i-premenn%C3%A9)
+* [Ⅱ. Podmienky](#%E2%85%B1-podmienky)
+* [Ⅲ. Cykly](#%E2%85%B2-cykly)
+* [Ⅳ. Náhodné čísla](#%E2%85%B3-n%C3%A1hodn%C3%A9-%C4%8D%C3%ADsla)
+* [Ⅴ. Reťazce a zoznamy](#%E2%85%B4-re%C5%A5azce-a-zoznamy)
+* [Ⅵ. Súbory](#%E2%85%B5-s%C3%BAbory)
+* [Ⅶ. Funkcie](#%E2%85%B6-funkcie)
+* [Zdroje a literatúra](#zdroje-a-literat%C3%BAra)
 
 _________
 
