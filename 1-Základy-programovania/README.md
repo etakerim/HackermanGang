@@ -47,7 +47,7 @@ ____
 
 
 
-**Premenná** je ako krabička slúžiaca na odkladanie informácií, ktoré si potrebujeme pre vykonanie danej činnosti zapamätať. Podľa účelu sa líšia svojim *dátovým typom*, ktorý sa vytvorí, keď do premennej niečo vložíme (*priradenie*) a určuje to, čo sa vo vnútri nachádza. 
+**Premenná** je ako krabička slúžiaca na odkladanie informácií, ktoré si potrebujeme pre vykonanie danej činnosti zapamätať. Podľa účelu sa líšia svojim *dátovým typom*, ktorý sa vytvorí, keď do premennej niečo vložíme (*priradenie*) a určuje to, čo sa vo vnútri nachádza.
 
 Základné stavebné kamene, z ktorých vyskladáme opis zložitejších javov sú:
 
@@ -59,7 +59,7 @@ Základné stavebné kamene, z ktorých vyskladáme opis zložitejších javov s
 
 * **Reťazec** (*str*) - Označujeme ich úvodzovkami alebo apostrofmi a väčšinou predstavujú text napísaný na klávesnici alebo zobrazený na obrazovke. (napr. *"Učím sa programovať!"*)
 
-  
+
 
 **Cvičenia:**
 
@@ -70,7 +70,7 @@ Základné stavebné kamene, z ktorých vyskladáme opis zložitejších javov s
    Ahoj ______
    ```
 
-   
+
 
 2. **Básnik** - Vytváraš básničky na počkanie. Dnes sa ti ťažko premýšľa nad kreatívnymi textami, tak si chceš ušetriť námahu tým, že budeš meniť len rým.
 
@@ -81,21 +81,21 @@ Základné stavebné kamene, z ktorých vyskladáme opis zložitejších javov s
    teraz som však šťastný ako _____.
    ```
 
-   
 
-3. **Pozvánka** - Každému kamarátovi chceš poslať pozvánku na svoju narodeninovú oslavu. Okrem mena v správe potrebuješ meniť aj čas konania oslavy (nie všetci chodia načas), vec, ktorú priniesie a jedlo, ktoré bude mať prichystané. 
+
+3. **Pozvánka** - Každému kamarátovi chceš poslať pozvánku na svoju narodeninovú oslavu. Okrem mena v správe potrebuješ meniť aj čas konania oslavy (nie všetci chodia načas), vec, ktorú priniesie a jedlo, ktoré bude mať prichystané.
 
    ```
    Meno kamaráta: _____
    Čas oslavy: _____
    Prines: _____
    Jedlo: ______
-   
+
    Ahoj _____,
    pozývam ťa na moju narodeninovú oslavu, ktorá sa bude konať 12.4. o _____. Nezabudni priniesť _____ a pekný darček. Na večeru ťa čaká _____ a samozrejme lahodná torta. Teším sa na teba! :)
    ```
 
-   
+
 
 4. **Prevod jednotiek teploty** - Si na návšteve v Amerike a keď ideš von nevieš ako sa máš obliecť, lebo na teplomere vidíš len stupne Fahrenheita. Premeň ich na stupne Celzia.
 
@@ -104,19 +104,19 @@ Základné stavebné kamene, z ktorých vyskladáme opis zložitejších javov s
     Doma by to bolo _____°C.
     ```
 
-    
 
-5. **Cesta autom** - Plánuješ trasu na výlet autom a chceš zistiť akou rýchlosťou musíte priemerne ísť, aby ste stihli navštíviť všetky miesta a prišli večer včas do hotela.  
+
+5. **Cesta autom** - Plánuješ trasu na výlet autom a chceš zistiť akou rýchlosťou musíte priemerne ísť, aby ste stihli navštíviť všetky miesta a prišli večer včas do hotela.
 
     ```
     Dĺžka cesty (km): ____
     Odchod z domu (hodina): ____
     Príchod do hotela (hodina): ____
-    
+
     Pôjdete priemerne ____ km/h.
     ```
 
-    
+
 
 6. **Kúpalisko** - Začína sa letná sezóna a prevádzka kúpaliska musí pred otvorením plne napustiť bazény v areáli. Všetky sú kvádrového tvaru a poznáme ich rozmery. Zaujíma nás spotrebovaná voda na konkrétny bazén a cena, ktorú za ňu zaplatíme.
 
@@ -126,11 +126,11 @@ Základné stavebné kamene, z ktorých vyskladáme opis zložitejších javov s
     Hĺbka bazéna (m): ____
     Hĺbka hladiny od okraja (cm): ____
     Cena za m³ vody v €: _____
-    
+
     Na bazén sa minie ____ litrov vody a bude to stáť ____ €.
     ```
 
-    
+
 
 7. **Maľovanie** - Sťahuješ sa s rodičmi do nového bytu a dali ti za úlohu vymalovať si izbu. Myslíš si, že nástroj na rýchle počítanie množstva farby by sa hodil aj profesionálnym maliarom, preto vytvoríš program na vypočítanie plochy stien a stropu bez okna a podlahy.
 
@@ -143,11 +143,11 @@ Základné stavebné kamene, z ktorých vyskladáme opis zložitejších javov s
     Šírka (cm): ____
     Výška (cm): ____
     Výdatnosť farby (m²/kg): ____
-    
-    Maľovať budeš plochu ____ m². Kúp ____ kg farby. 
+
+    Maľovať budeš plochu ____ m². Kúp ____ kg farby.
     ```
 
-      
+
 
 8. **Brzdenie** - V poslednej dobe je na trati viacej nebezpečných zrážok. Rušňovodiči ťa požiadali, aby si zistil ako rýchlo pred prekážkou dokáže vlaková súprava zastaviť pri danej rýchlosti.
 
@@ -160,7 +160,7 @@ Základné stavebné kamene, z ktorých vyskladáme opis zložitejších javov s
     - Počet miest na vagón: ____
     - Zaplnenosť vlaku (%): ____
     - Brzdná sila (N/t): ____
-    
+
     V rýchlosti ____ km/h zabrzdí súprava s hmotnosťou ____ t na vzdialnosť _____ m a bude to trvať ____ s.
     ```
 
@@ -179,39 +179,39 @@ ___
 **Cvičenia:**
 
 
-1. **Heslo** - Tvoj dom na strome už vykradlo pár nezvaných návštevníkov a preto si vymyslel spôsob ako dovoliť návštevu len povoleným osobám, ktoré poznajú tajné heslo. 
+1. **Heslo** - Tvoj dom na strome už vykradlo pár nezvaných návštevníkov a preto si vymyslel spôsob ako dovoliť návštevu len povoleným osobám, ktoré poznajú tajné heslo.
 
     ```
     Stoj! Povedz Heslo!
     > _____
-    
-    Vstúp, priateľ /   Zmizni kade ľahšie 
-    ```
-    
 
-    
+    Vstúp, priateľ /   Zmizni kade ľahšie
+    ```
+
+
+
 2. **Najväčšie číslo** - Získaj tri čísla a zisti, ktoré z nich je najväčšie.
 
     ```
     1.číslo: ____
     2.číslo: ____
     3.číslo: ____
-    
+
     Najväčie je ____.číslo a to je ____.
     ```
 
-    
+
 
 3. **Vhodné oblečenie** - Módny poradcovia vyšli z módy a ich prácu prebrali počítače. Na základe počasia a príležitosti odporúčajú vhodný outfit. Vymysli pár tipov pre rôzne situácie a začni radiť.
 
     ```
     Ako je vonku?: _____
     Kam ideš?: ____
-    
+
     Určite si nezabudni _______ a tiež si vezmi _______.
     ```
 
-    
+
 
 4. **Pokazený rozpis** -  Podnik spracujúci rudu dostal časový rozpis trvania jednotlivých krokov vylepšeného technologického procesu. Činnosti zvyčajne trvajú dlhšie ako hodinu, nehodí sa im teda mať časy napísané iba ako údaj v minútach. Tvojou úlohou je rozpísať minúty na dni, hodiny, minúty pre jednoduchšie čítanie rozpisu. Vynechajte nepotrebné časové údaje.
 
@@ -220,7 +220,7 @@ ___
       = ___ d. ____ hod. ___ min
      ```
 
-      
+
 
 5. **Hovoriaca kalkulačka** - Výpočty neboli nikdy väčšia zábava, teda aspoň s kalkulačkou, ktorá namiesto čudných matematických znamienok hovorí ľudskou rečou. Vytvorte kalkulačku, ktorá si vypýta dve čísla a vie ich sčítať alebo odčítať.
 
@@ -229,11 +229,11 @@ ___
      Povedz mi prvé číslo: ____
      Potrebujem ďašie číslo: ____
      Chceš ich sčítať alebo odčítať: ____ (sčítať / odčítať)
-     
-     Výsledok tvojho príkladu: ____ plus/mínus _____ je ________. 
+
+     Výsledok tvojho príkladu: ____ plus/mínus _____ je ________.
      ```
 
-     
+
 
 6. **Kvadratická rovnica** - Pre zadané koeficienty `a`, `b`, `c` kvadratickej rovnice `ax² + bx + c = 0`  vypočítajte jej korene v obore reálnych čísel a vrchol paraboly daného predpisu.
 
@@ -243,18 +243,18 @@ ___
      a = ____
      b = ____
      c = ____
-     
+
      ___x² + ___x + ___ = 0
      x₁ = ____
      x₂ = ____
      V[___; ___]
      ```
 
-     
 
-7. **Trojuholníky** 
 
-     *a)* Mýtická bytosť stredoškolskej matematiky, o ktorej je vždy treba zistiť, čo najviac bez rysovania, aj keď chýbajú rozmery. Ak je možné, doplň chýbajúce informácie pre ľubovoľný trojuholník (zadaný ako SSS) ako sú dĺžky strán a výšok, veľkosti uhlov, obsah a obvod. Využite trojuholníkoú nerovnosť, sínus(ovú) vetu, kosínus(ovú) vetu a vzorec na výpočet obsahu trojuholníkov. 
+7. **Trojuholníky**
+
+     *a)* Mýtická bytosť stredoškolskej matematiky, o ktorej je vždy treba zistiť, čo najviac bez rysovania, aj keď chýbajú rozmery. Ak je možné, doplň chýbajúce informácie pre ľubovoľný trojuholník (zadaný ako SSS) ako sú dĺžky strán a výšok, veľkosti uhlov, obsah a obvod. Využite trojuholníkoú nerovnosť, sínus(ovú) vetu, kosínus(ovú) vetu a vzorec na výpočet obsahu trojuholníkov.
 
      *b)* Rozšírte vypočet aj pre ostatné vety o trojuholníkoch: SUS, USU, UUS
 
@@ -265,7 +265,7 @@ ___
      a = ___
      b = ___
      c = ___
-     
+
      Strany: a = ___; b = ___; c = ___
      Uhly: 𝛂 = ___°; 𝛃 = ___°; 𝛄 = ___°
      Výšky: v(a) = ___; v(b) = ___; v(c) = ___
@@ -274,7 +274,7 @@ ___
      Trojuholník je: ____, _____
      ```
 
-     
+
 
 ___
 
@@ -292,108 +292,108 @@ Obrovský potenciál počítačov tkvie v bezchybnom neúnavnom vykonávaní pre
      ```
      Musím napísať: _____
      Toľkoto krát: ____
-     
+
      ______
      ______
      ...
      ```
 
-     
+
 
 2. **Hodnotenie** -  Filmový kritici a hodnotitelia reštauracií zapíšu po namáhavom dni číselné skóre k ich recenziam. Pre lepší efekt potrebujú vykresliť hviezdničky namiesto čísla. Pomôž im.
 
      ```
      Skóre: 5
-     
+
      *****
      ```
 
-     
+
 
 3. **Pyramída** - Hviezdičky zoskup do tvaru pyramídy zadanej výšky.
 
      ```
      Výška pyramídy: 4
-     
+
          *
         ***
        *****
       *******
      ```
 
-     
+
 
 4. **Smaragd** - Na pyramídu pripoj zo spodu ďaľšiu obrátene, aby vznikol smaragd z hviezdičiek.
 
      ```
      Veľkosť: 5
-     
+
        *
       ***
      *****
       ***
-       * 
+       *
      ```
 
-     
+
 
 5. **Duté vnútro** - Nakresli duté pyramídu a smaragd podľa prechádzajúcich úloh.
 
      ```
      Výška pyramídy: 4
-     
+
          *
         * *
        *   *
       *******
      ```
 
-     
 
-6. **Mriežka slov** - Načítajte veľkosť tabuľky a slovo, ktoré sa v nej bude na každom riadku v stĺpci opakovať. 
+
+6. **Mriežka slov** - Načítajte veľkosť tabuľky a slovo, ktoré sa v nej bude na každom riadku v stĺpci opakovať.
 
      ```
      Počet riakov a stĺpcov: 4
      Opakovať slovo: ano
-     
+
      ano ano ano ano
      ano ano ano ano
      ano ano ano ano
      ano ano ano ano
      ```
 
-     
+
 
 7. **Rám** - Prvý a posledný riadok a stĺpec bude tvoriť rám pre mriežku slov.
 
     ```
     Počet riakov a stĺpcov: 4
     Opakovať slovo: ano
-    
+
     ### ### ### ###
     ### ano ano ###
     ### ano ano ###
     ### ### ### ###
     ```
 
-    
+
 
 8. **Malá násobilka** - K výbave každého žiaka základnej školy patrí tabuľky malej násobilky. Vytvor takúto tabuľku obsahujúcu každý násobok od 1x1 po 10x10, aby si pomohol všetkým malým matematikom.
 
      ```
-       1   2   3   4   5   6   7   8   9  10 
-       2   4   6   8  10  12  14  16  18  20 
-       3   6   9  12  15  18  21  24  27  30 
-       4   8  12  16  20  24  28  32  36  40 
-       5  10  15  20  25  30  35  40  45  50 
-       6  12  18  24  30  36  42  48  54  60 
-       7  14  21  28  35  42  49  56  63  70 
-       8  16  24  32  40  48  56  64  72  80 
-       9  18  27  36  45  54  63  72  81  90 
-      10  20  30  40  50  60  70  80  90 100 
+       1   2   3   4   5   6   7   8   9  10
+       2   4   6   8  10  12  14  16  18  20
+       3   6   9  12  15  18  21  24  27  30
+       4   8  12  16  20  24  28  32  36  40
+       5  10  15  20  25  30  35  40  45  50
+       6  12  18  24  30  36  42  48  54  60
+       7  14  21  28  35  42  49  56  63  70
+       8  16  24  32  40  48  56  64  72  80
+       9  18  27  36  45  54  63  72  81  90
+      10  20  30  40  50  60  70  80  90 100
      ```
 
-     
+
 
 9. **Sporenie** -  Na letnej brigáde si zarobil peniaze, ktoré chceš usporiť. Porovnáš ponuky bánk a hľadáš najvýhodnejší plán. Vytvor si sporiacu kalkulačku, ktorá na základe nemenného počiatčného vkladu, ročnej úrokovej sadzby, typu úročenia a žiadanej konečnej sumy, vypíše vývoj tvojich finančných prostriedkov do budúcnosti.
 
@@ -402,14 +402,14 @@ Obrovský potenciál počítačov tkvie v bezchybnom neúnavnom vykonávaní pre
       Úroková sadzba p.a. v %: _____
       Typ úročenia (jednoduché / zložené): _____
       Žiadaná suma v €:
-      
+
       Rok				Suma         Úrok
           1.	        ______ €    _____ €
           2.	        ______ €    _____ €
       ....
       ```
 
-      
+
 
 ___
 
@@ -433,7 +433,7 @@ Pri tvorbe simulácií sú náhodné čísla nepostrádateľné. Umožňujú vni
      +-------+
      ```
 
-     
+
 
 2. **Hádaj číslo** - Náhodne vyber číslo s rozsahu medzi 0 a 100 a nechaj hráča hádať dokým neuhádne. Pri tom mu poskytni nápovedy, či je jeho tip priveľa alebo primalo. Zakomponuj rôzne obtiažnosti s možnosťou nastavenia rozsahu alebo maximálnym počtom tipov.
 
@@ -446,7 +446,7 @@ Pri tvorbe simulácií sú náhodné čísla nepostrádateľné. Umožňujú vni
      Výborne. Uhádol si!
      ```
 
-     
+
 
 3. **Opakovanie násobilky** - Vďaka tvojej tabuľke malej násobilky sa malý školáci mohli naučiť násobiť. Ako dobre to vedia, musíš teraz odtestovať. Vygeneruj dve čísla od 1 do 10 do príkladu na násobenie. Over správnosť žiačikovej odpovede.
 
@@ -476,52 +476,52 @@ _____
    Správa: ________
    Za chybné písmeno: ____
    Vymeň: ____
-   
+
    Opravené!
    __________
    ```
 
-   
+
 
 2. **Cenzúra** - Prišla tvrdá cenzúra s nariadením, že nikto už nesmie vidieť žiadnu samohlásku. Nahraď každý prečin vo vstupnom texte ľubovoľným iným špeciálnym znakom.
 
    ```
    Správa: Ja som tvoj kamarat
    Samohlásku nahraď: *
-   
+
    Cenzurované: J* s*m tv*j k*m*r*t
    ```
 
-   
+
 
 3. **Počítanie slov** - Do redakcie miestnych novín chodia denno denne články, vtipy, poviedky a príbehy zo života od verných čitateľov. Aby mohli byť uverejnené potrebujú sa zmestiť do vyhradeného priestoru. Vypíš počet znakov, slov, viet a normostrán (*=1800 znakov*) pre rýchlejšie spracovanie textov.
 
    ```
    Článok: _________
-   
+
    Znaky: ___
    Slová: ___
    Vety: ___
    Normostrany: ____
    ```
 
-   
+
 
 4. **Najdlhšie slovo** - Hra staršia ako ľudstvo samo. Debatný spolok usporiadal súťaž o nájdenie najdlhšieho slova, ktoré sa kedy vyskytlo v historických prejavoch. Zaujali ťa odmeny, ale nechce sa ti prehrabávať knižnicou starých záznamníkov a preto si prácu uľahčíš. Nájdi najdlhšie slovo v reťazci.
 
    ```
    Rečnícky prejav: ________
-   
+
    Najdlhšie slovo v ňom: _____
    ```
 
-   
+
 
 5. **Frekvencia písmen** - Dlho do noci čítaš časopisy o umelej inteligencii a fascinuje ťa jej schopnosť rozprávať sa s človekom. Na vytvorenie viet na danú tému potrebuje mať prehľad o percentuálnom výskyte hlások v texte. Spočítaj a vypíš zoznam frekvencie písmen v reťazci.
 
    ```
    Článok: _______
-   
+
    A: 23.2 %
    B: 11.5 %
    C: 8.9 %
@@ -529,13 +529,13 @@ _____
    Z: 0.3 %
    ```
 
-   
+
 
 6. **Histogram** - Pri svojom predchádzajúceho pokuse s početnosťou písmen si všimneš, že každé ďaľšie písmeno v zozname sa oveľa menej objavuje ako očakávaš. Vykresli hviezdičky namiesto počtu percent a over si tak svoje pozorovanie graficky.
 
    ```
    Článok: _______
-   
+
    A: ****
    E: *******
    I: ****
@@ -543,7 +543,7 @@ _____
    X:*
    ```
 
-   
+
 
 7. **Nákupný košík** - Pri veľkých nákupoch sa často zíde prehľadný zoznam s tým, čo doma treba. Pýtaj si položky s ich cenami až kým sa nerozhodneš, že máš spísané všetko. Zobraz prehľadnú orámovanú tabuľku s údajmi podobne ako na pokladničom bločku (názov tovaru, DPH tovaru, cena tovaru s DPH, celková suma na zaplatenie).
 
@@ -551,7 +551,7 @@ _____
      Čo kúpiť?: ______
      Cena ______?: _______
      ....
-     
+
      +----------+--------+--------------+
      | Tovar    |  DPH   |  Cena s DPH  |
      +----------+--------+--------------+
@@ -563,25 +563,25 @@ _____
      +----------+--------+--------------+
    ```
 
-   
+
 
 8. **Akronym** - SMS-ky rapídne zdraželi a napadlo ti, že bude lepšie posielať slovné spojenia ako skratky. Zo zadaných slov vytvor akronym. Vezmi začiatočné písmená každého slova a vytvor sktatku, ktorá bude pozostávať len z týchto písmen.
 
    ```
    Slovné spojenie: Slovenské národné divadlo
-   
+
    Skratka: SND
    ```
 
-   
 
-9. **Veľa opakovania** - Roboti rozvážajúci pizzu po meste si zaznamenávajú zmenu smeru pre postupné vylepšovanie trás na lokality k častým zákazníkom. Keďže sa firme darí, prešli roboti už toľko, že sa im všetky záznamy o ich cestách nezmestia do pamäti. Všimneš si, že si značia každý krok a to vedie k častému opakovaniu. Nahraď postupnosť za sebou idúceho písmena, počtom výskytu a písmenom.  
+
+9. **Veľa opakovania** - Roboti rozvážajúci pizzu po meste si zaznamenávajú zmenu smeru pre postupné vylepšovanie trás na lokality k častým zákazníkom. Keďže sa firme darí, prešli roboti už toľko, že sa im všetky záznamy o ich cestách nezmestia do pamäti. Všimneš si, že si značia každý krok a to vedie k častému opakovaniu. Nahraď postupnosť za sebou idúceho písmena, počtom výskytu a písmenom.
 
    *Pozri: [Wikipedia - Run-length encoding](https://cs.wikipedia.org/wiki/Run-length_encoding)*
 
    ```
    Cesta robota: NNNNNNSSSSSSSSSSSWWWWNNN
-   
+
    Skomprimované: 6N11S4W3N
    ```
 
@@ -612,7 +612,7 @@ V tejto kapitole budeme pre jednoduchosť pracovať s textovými súbormi:
 
 1. **Prepisovanie** - Pri prepisovaní dlhých textov na vstup programu sa často mýliš a príde ti to zbytočne zdĺhavé. Načítaj články u zadaní z predchádajúcej kapitoly zo súboru, ktorého názov si na začiatku vypýtaš. Pri úlohe "veľa opakovania" ulož záznam o ceste robota do nového súboru.
 
-   
+
 
 2. **Turistika** - Na víkend sa črtajú ideálne podmienky na horskú turistiku. Nenecháš nič na náhodu a pripravíš si detailný plán s výškovým profilom trasy. Na každých desať metrov trasy si do súboru poznačíš aktuálnu nadmorskú výšku. Zisti celkové stúpanie a klesanie počas celého výletu spolu s najvyššou a najnižšou nadmorskou výškou. Vypíš aj celkovú dĺžku túry v kilometroch a trvanie prechodu horami v hodinách.
 
@@ -639,7 +639,7 @@ V tejto kapitole budeme pre jednoduchosť pracovať s textovými súbormi:
 
      ```
      Výškový profil trasy je v súbore: ______
-     
+
      Trasa: 0.140 km - 0 h 21 min
      Stúpanie: 53 m
      Klesanie: 40 m
@@ -647,7 +647,7 @@ V tejto kapitole budeme pre jednoduchosť pracovať s textovými súbormi:
      Najvyššie miesto trasy: 401 m
      ```
 
-   
+
 
 3. **Vedomostný kvíz** - Bifľovanie ti vôbec nepríde ako zábava. Keby existoval spôsob, ktorým si opakovanie poznatkov spríjemniť. Včera si zo smútku nad vidinou takto premárneho času pri jedení čokolády a čipsov pozeral kvízovú reláciu. Prišlo ti to neuveriteľne poučné. Polož náhodnú otázku s možnostami zo súboru kvízových otázok a bodovo ohodnoť správnu odpoveď. Všetky kvízové otázky s možnosťami sa však nezmestia do pamäti programu, preto vždy vyber náhodnu otázku priamo zo súboru.
 
@@ -673,7 +673,7 @@ V tejto kapitole budeme pre jednoduchosť pracovať s textovými súbormi:
      Súbor s kvízovými otázkami: kviz.txt
      Kvízové otázky pripravené.
      Ideme na to!
-     
+
      V ktorom roku sa začala Francúzska revolúcia?
      A: 1763
      B: 1813
@@ -683,7 +683,7 @@ V tejto kapitole budeme pre jednoduchosť pracovať s textovými súbormi:
      Správne! Máš 1 bodov. / Nabudúce si to lepšie premysli. Skúsime niečo iné.
      ```
 
-     
+
 
 4. **Narodeniny** - Darčeky k narodeninám zvykneš kupovať na poslednú chvílu. Potrebuješ mať prehľad aspoň na mesiac dopredu, kto bude mať narodeniny, aby si stihol vybrať niečo výnimočné. Zo súboru načítaj ľudí, ktorí majú sviatok v požadovaný mesiac v roku.
 
@@ -701,12 +701,12 @@ V tejto kapitole budeme pre jednoduchosť pracovať s textovými súbormi:
 
      ```
      Zobraz narodeniny pre mesiac v roku: 3.2019
-     
+
      Narodeniny: Marec 2019
      15.3. - Jožko Mrkvička - 17 rokov
      ```
 
-   
+
 
 5. **Pripomienky v kalendári** - Po čase zistíš, že jednoduchšie by bolo, ak by sa ti týždeň pred kamarátovými narodeninami objavila pripomienka v tvojom osobnom elektronickom kalendári. Máš veľa kontaktov, nechceš ich však všetky prepisovať ručne. Zistiš, že zoznam narodenín môžeš do kalendárovej aplikácie vložiť vo formáte *iCalendar (.ics)*. Preveď súbor s menami a dátumami narodenia do tejto podoby.
 
@@ -738,7 +738,7 @@ V tejto kapitole budeme pre jednoduchosť pracovať s textovými súbormi:
      END:VCALENDAR
      ```
 
-     
+
 
 6. **Cestovné poriadky** - Z celoštátneho rýchlika prestupujú v okresných mestách cestujúci na miestne autobusy.  Podľa času odchodu a trvania cesty zisti, ktorý autobus stihnú a vypíš najbližší spoj s najmenším čakaním medzi vlakom a autobusom. Daj pozor, pretože prvý časový údaj v riadku s odchodmi autobusu je v skutočnosti trvanie cesty vlakom, kým sa dostaneš do stanice, odkiaľ odchádza ten autobus.
 
@@ -750,18 +750,18 @@ V tejto kapitole budeme pre jednoduchosť pracovať s textovými súbormi:
       bus,1:45,9:30,12:08,16:33
       ...
       ```
-      
+
    * *Cestovné poriadky:*
 
       ```
       Čas: 10:00
       Trvanie cesty vlakom: 1:00
-      
+
       Najbližší spoje (vlak, autobus):
       12:15 - 13:15, 15:00 -
       ```
-      
-      
+
+
 
 9. **Spisovateľ** - Každý nemôže mať doma vlastného Hviezdoslava. Nebolo by ale úžastné, keby si mohol tvoriť básne alebo prózu s podobným štýlom ako jeden z velikánov literatúry? Vzrušujúcejšie by bolo naučiť počítač umeleckému cíteniu. Najprv musíš zhromaždiť, čo najväčší počet ukážok tvorby autora, a tým zhromaždiť pravdepodobnosti následnosti *n-gramov* (písmen, slabík, slov) do *Markovovho reťazca*. Potom náhodne vygeneruj nový text v štýle autora. Žiaľ, vytvorené myšlienky zrejme nebudú dávať poväčšinou významovo zmysel.
 
@@ -770,8 +770,8 @@ V tejto kapitole budeme pre jednoduchosť pracovať s textovými súbormi:
    ```
    Chcem písať ako: Dostojevskij
    Dĺžka n-gramu: 2
-   Počet znakov výsledného textu: 100 
-   
+   Počet znakov výsledného textu: 100
+
    Spracúvam korpus tvorby autora ...
    Spočítavam maticu prechodových stavov ...
    Generujem originálny text ...
@@ -784,7 +784,7 @@ ____
 
 ### Ⅶ. Funkcie
 
-**Funkcia** je pomenovaná časť programu, ktorá vykonáva špecifickú činnosť. Hovorí sa im preto tiež *procedúry* alebo *podprogramy*. Predstavuje súvislú časť kód, obsahujúcu sled na seba nadväzujúcich príkazov, tvoriacich jeden logický celok.  Takto umožňuje zložitejší program rozdeliť na viacero samostatných častí. 
+**Funkcia** je pomenovaná časť programu, ktorá vykonáva špecifickú činnosť. Hovorí sa im preto tiež *procedúry* alebo *podprogramy*. Predstavuje súvislú časť kód, obsahujúcu sled na seba nadväzujúcich príkazov, tvoriacich jeden logický celok.  Takto umožňuje zložitejší program rozdeliť na viacero samostatných častí.
 
 
 
@@ -798,7 +798,7 @@ ____
    Našiel si vrak. Dobrá práca!
    ```
 
-   
+
 
 2. **Lietadlo** - Pilotov v kokpite lietadlo by počas letu zaujímalo, ako ďaleko sú ešte od prístatia. Zo zemepisných súradníc aktuálnej polohy a súradníc cieľa vypočíataj vo funkcii `letime(x, y)` najkratšiu vzdialenosť medzi týmito bodmi na sférickom povrchu zemegule.
 
@@ -807,29 +807,29 @@ ____
    ```
    Pozícia: 42.990967 -71.463767
    Cieľ: 48.53682 -13.855231
-   
+
    Vzdialenosť: 4416.21 km
    ```
 
-   
+
 
 3. **Cézarová šifra** - Pri tvojich cestách po lodných pokladoch ťa odpočúvajú piráti, ktorí ťa chcú predbehnúť a obohatiť sa. Na utajenie svojej polohy a správ s pevninou musíš svoje informácie šifrovať. Funkcia `sifruj(sprava, kluc)` zašifruje text správy tak, že posunie každé písmeno abecedy podľa písmena `kluc`, čiže napríklad správa "ABC" sa kľúčom "B" zmení na "BCD". Funkcia `desifruj(sifra, kluc)` bude fungovať spätne.  Pre lepšiu bezpečnosť podporuj aj dlhšie kľúče. Každé písmeno bude vyjadrovať posun od začiatku abecedy písmena, s ktorým sa stretne. Potom správa "AVE CEZAR" s kľúčom "BCD" bude "BXH DGCBT".
 
-    
+
 
 3. **Pascalov trojuholník** - Vytvorte funkciu `pascalov_trojuholnik(n)`, ktorá vypíšte súčtovú pyramídu s *n* riadkami, ktorá má po okrajoch jednotky a nasledujúce riadky sa tvoria ako súčet dvoch čísel v predchádzajúcom riadku.
 
    ```
    Počet riadkov: 5
-   
+
        1
       1 1
      1 2 1
     1 3 3 1
-   1 4 6 4 1 
+   1 4 6 4 1
    ```
 
-   
+
 
 4. **Bublikové triedenie** - Pre prehľadnosť údajov je užitočné vedieť ich utriediť podľa rôznych kritérií. Napíš program, ktorý vypíše študentov zo súboru zoradených podľa zadaného názvu stĺpčeka vzostupne.  Na začiatok použi algoritmus bublinkového triedenia, neskôr proces zefektívni využitím algoritmom triedenia zlučovaním alebo rýchlym triedením.
 
@@ -840,16 +840,16 @@ ____
      Milan, Peterka, 15, 2004-09-18, Bratislava, 1.6, I.B.
      ...
      ```
-   
-     
-   
+
+
+
 6. **Štatistika** - Pre investora je dôležité poznať podmienky trhu a potenciálnu konkurenciu predtým, než si naplánuje stratégiu investovania. Rozbiehaš realitnú kanceláriu a skôr než nastaviš ceny pre konkrétne byty, zisti v akom vzťahu je výmera bytu k jeho cene v lokalite. Pre každú štatistickú funkciu si napíš zodpovedajúcu procedúru. Údaje o bytoch načítaj zo súboru.
 
    *Pozri: [Wikipedia - Štatistika](https://sk.wikipedia.org/wiki/Matematick%C3%A1_%C5%A1tatistika)*
 
    ```
    Súbor s bytmi v lokalite: ______
-   
+
    					:	Cena (€):	Výmera(m^2)	:
    Priemer 			: 			:				:
    Medián				:			:				:
@@ -857,7 +857,7 @@ ____
    Smerodajná odchýlka :			:				:
    ```
 
-   
+
 
 7. **Rímske čísla** - Od archeológov si dostal dlhý zoznam rímskych čísel, ktoré boli nájdené v novobjavených podzemených historických pamiatkach. Tažko sa v nich dá vyznať a je na tebe, aby si ich premenil na "normálne" arabské čísla. Pre zhrnutie ti poslali aj zoznam pravidiel prevodu týchto číselných systémov. Napíš funkciu `rimske_na_arabske(rimske)`, ktorá premení rímske na arabské číslo.
 
@@ -871,7 +871,7 @@ ____
    M = 1000
    ```
 
-   
+
 
 8. **Základný tvar zlomku** - Zlomky sú vhodné na presné výpočty s častami z celku. Vytvor jednoduchú kalkulačku, ktorá umožňuje dva zlomky sčítať, odčítať, násobiť a deliť. Výsledok vždy zjednoduš na základný tvar (*Euklidov algoritmus pre NSD a NSN*).
 
@@ -880,12 +880,12 @@ ____
    a = 3/4
    b = 1/2
    Vypočítaj (+, -, *, /): +
-   
+
    Výsledok:
    3/4 + 1/2 = 5/4
    ```
 
-   
+
 
 9. **Hra Poklad** - Povráva sa, že na strašidelnom hrade v Karpatoch je bludisko so siedmimi tajomnými komnatami. Každá má meno a je v nej truhlica s pokladom. Mapa bludiska je náhodne poskladaná, uložená v pamäti počítača, ale nie je nakreslená na obrazovke. Hráč musí zistiť, ako sú komnaty navzájom pospájané. Na začiatku hry sa ocitne v náhodne vybranej komnate. Jeho úlohou je zhromaždiť všetky truhlice v jednej komnate, pričom môže vykonať iba ohraničený počet krokov.
 
@@ -906,21 +906,21 @@ ____
    POLOZ		 : Položí truhlicu
    KDE			 : Informuje o polohe truhlíc
    SOS			 : Vypíše pravidlá hry
-   
+
    Si v 4.komnate
    Je žltá a žeravá
    Sú v nej: ZLATKY
    Čo chceš robiť?
    ? ZDVIHNI
    Zdvihol si truhlicu, v ktorej sú zlatky.
-   
+
    Ešte stále si 4.komnate
    Čo chceš robiť?
    ? Z
    ...
    ```
 
-   
+
 
 10. **Databáza** - Na školu za siedmimi horami a dolinami si objednali počítač na uloženie a prehliadanie záznamov o študentoch. Keďže rok, čo rok odchádzajú maturanti a prichádzajú prváci, potrebujú tabuľky i upravovať. Napíš databázový systém, ktorý bude umožňovať vytvárať a mazať tabuľky, kde každá bude vo vlastnom csv súbore. Budú sa dať vkladať a mazať aj riadky, či upravovať jednotlivé políčka. Ulož do databázy napríklad aj informácie o knihách zo školskej knižnice.
 
@@ -950,7 +950,7 @@ ____
        DATABÁZA> SKONČI
        ```
 
-    
+
 
 11. **Kalkulačka** - Moderné vedecké kalkulačky sú takmer zázrakom. Buď tým, že sa mimo akademickej pôdy skoro vôbec nepoužívajú, alebo samotnou zložitosťou ich fungovania. Dokážu rozlíšiť, či má prednosť násobenie alebo sčítanie, zatiaľ čo vezmú do úvahy zátvorky. Nemôže byť pre nich nič jednoduchšie ako prijsť na to, čo je číslo a čo operátor v dlhom posuvnom texte displeja. Vytvor program kalkuačky, ktorá sa bude správať ako vrecková vedecká kalkulačka (s infixovým zápisom).
 
@@ -962,30 +962,30 @@ ____
     > ...
     ```
 
-    
+
 
 12. **Turingov stroj** - Turingov stroj dokáže simulovať chod ľubovoľného programu. Pozostáva z nekonečnej pásky rozdelenej na políčka, po ktorých chodí čítacia/zapisovacia hlava podľa zadaných inštrukcií. Načítaj príkazy pre turingov stroj zo súboru a každú sekundu zobraz aktuálny stav pásky a pozíciu hlavy.
 
     *Pozri: [Simulátor Turingovho stroja[EN]](https://turingmachinesimulator.com/)*
-    
+
     * Formát príkazu
-    
+
       ```
       [súčasný stav], [prečítaj symbol], [zapíš symbol], [pohyb hlavy], [nový stav]
       ```
-    
+
       ```
       Špeciálna značka:
       _ = Prázdne políčko
-      
+
       Pohyb hlavy:
       < = doľava
       > = doprava
       - = žiaden
       ```
-    
+
     * Inštrukcie pre simulátor Turingovho stroja počítajúceho binárne čísla nahor.
-    
+
       ```
       A, _, 0, -, B
       B, 0, 1, -, C
@@ -995,9 +995,9 @@ ____
       C, 0, 0, >, C
       C, 1, 1, >, C
       ```
-    
+
     * Simulácia:
-    
+
       ```
       0
       ^
@@ -1013,8 +1013,8 @@ ____
       ^
       ...
       ```
-    
-    
+
+
 
 ___
 
@@ -1024,7 +1024,7 @@ ___
 
 < http://input.sk/ >,  RNDr. Andrej Blaho, PhD., FMFI UK
 
-< http://www.programovanie.kromsat.sk/prog-b/index.htm >, Ing. Mária Hedvigová, SPŠE Prešov
+< http://web.archive.org/web/20200218113709/http://www.programovanie.kromsat.sk/prog-b/index.htm >, Ing. Mária Hedvigová, SPŠE Prešov
 
 TATCHELLOVÁ, Judy, BENNETT, Bill. *Skúsiš to s mikropočítačom? : poznávame a programujeme. Časť 1., Ako porozumieť mikropočítaču*. Bratislava : Mladé letá. 1990. 142 s. ISBN 80-06-00107-3.
 
