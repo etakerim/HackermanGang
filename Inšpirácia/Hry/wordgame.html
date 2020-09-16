@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Word game</title>
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+            #game {
+                max-width: 1150px;
+                width: 75%;
+                background-color: #f2f2f2;
+                padding: 2rem;
+                margin: 2rem auto;
+                border-radius: 2rem;
+                box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+            }
+
+            #splashscreen {
+                text-align: center;
+                font-family:  Tahoma, Verdana, Segoe, sans-serif;
+            }
+
+            #splashscreen > h1 {
+                margin: 1rem 0;
+                font-size: 2.5rem;
+                color: #111;
+            }
+
+            #win {
+                display: none;
+                margin-left: 10%;
+                color: #6a1a8f;
+                font-weight: 600;
+                font-size: 1.2rem;
+                padding-top: 1rem;
+                text-transform: uppercase;
+            }
+
+            #play {
+                text-align: center;
+                padding: 1.5rem 3rem;
+                display: block;
+                font-weight: 600;
+                margin: 1rem auto;
+                border: none;
+                border-radius: 0.5rem;
+            }
+
+            #playAgain {
+                display: inline-block;
+                border: none;
+                padding: 1.2rem 1.8rem;
+                border-radius: 0.5rem;
+                margin: 0 2rem;
+
+            }
+
+            button {
+                background-color: #6ec496;
+                font-size: 1.3rem;
+                line-height: 1rem;
+                color: #ededed;
+                text-transform: uppercase;
+                font-weight: 600;
+                cursor: pointer;
+            }
+
+            button:hover {
+                background-color: #2bba6d;
+            }
+
+            button:disabled {
+                background-color: #b8b8b8;
+            }
+
+            #word {
+                border: 1px solid gray;
+                border-radius: 0.2rem;
+                padding: 0.5rem 1rem;
+                margin: 2rem 0;
+                width: 60%;
+                font-size: 1.2rem;
+            }
+
+            #board {
+                display: none;
+            }
+
+            #score {
+                display: inline-block;
+                margin: 0.5rem;
+                padding: 1rem 1.8rem; 
+                font-size: 1.5rem;
+                font-weight: 600;
+                color: #ffbb00;
+                background-color: #6a1a8f;
+                border-radius: 1rem;
+            }
+
+            #blanks {
+                margin: 1.8rem 1rem;
+                min-height: 5rem;
+                letter-spacing: 1rem;
+                font-family: Consolas, monaco, monospace;
+                font-size: 3.2rem;
+                font-weight: 400;
+                word-wrap: break-word;
+                text-transform: uppercase;
+                text-align: center;
+            }
+
+            .letter {
+                width: 2.5rem;
+                height: 2.5rem;
+                margin: 0.6rem;
+                padding: 0.8rem;
+                border: 1px solid black;
+                border-radius: 0.2rem;
+            }
+        </style>
+         <script>
+            const EMPTY = '_';
+            let word;
+            let uncovered;
+
+            function showUncovered() {
+                const blanks = document.getElementById('blanks');
+                blanks.textContent = uncovered.join('');
+            }
+
+            function playerMove(event) {
+                const GOOD_GUESS_POINTS = 50;
+                const WRONG_GUESS_POINTS = -10;
+
+                const guessBtn = event.target;
+                const guess = guessBtn.textContent.toLowerCase();
+                let correct = false;
+
+                for (const [pos, letter] of word.entries()) {
+                    if (letter === guess) {
+                        correct = true;
+                        uncovered[pos] = letter;
+                    }
+                }
+
+                let points = getScore();
+                points += (correct) ? GOOD_GUESS_POINTS : WRONG_GUESS_POINTS;
+                setScore(points);
+
+                guessBtn.style.visibility = 'hidden';
+                showUncovered();
+
+                if (!uncovered.includes(EMPTY))
+                    win();
+            }
+
+            function getScore() {
+                const pointsLbl = document.getElementById('points');
+                return Number(pointsLbl.textContent);
+            }
+
+            function setScore(points) {
+                const pointsLbl = document.getElementById('points');
+                pointsLbl.textContent = points;
+            }
+
+            function createLetters() {
+                const alphabet = 'abcdefghijklmnopqrstuvwxyz0123456789';
+                const letters = document.getElementById('keyboard');
+
+                for (const label of alphabet)  {
+                    const btn = document.createElement('button');
+                    btn.textContent = label;
+                    btn.disabled = false;
+                    btn.className = 'letter';
+                    btn.addEventListener('click', playerMove);
+                    letters.appendChild(btn);  
+                }
+            }
+
+            function win() {
+                const winLbl = document.getElementById('win');
+                winLbl.style.display = 'inline-block';
+
+                const letters = document.getElementsByClassName('letter');
+                for (const btn of letters)
+                    btn.disabled = true;
+            }
+
+            function resetGame() {
+                const task = document.getElementById('word');
+                word = task.value.toLowerCase().split('');
+                uncovered = EMPTY.repeat(word.length).split('');
+                setScore(0);
+                createLetters();
+                showUncovered();
+            }
+
+            window.addEventListener('DOMContentLoaded', event => {
+                const playBtn = document.getElementById('play');
+                const resetBtn = document.getElementById('playAgain');
+
+                const splashscreen = document.getElementById('splashscreen');
+                const board = document.getElementById('board');
+
+                playBtn.addEventListener('click', () => {
+                    const task  = document.getElementById('word');
+                    if (!task.value)
+                        return;
+
+                    resetGame();
+                    splashscreen.style.display = 'none';
+                    board.style.display = 'block';
+                })
+
+                resetBtn.addEventListener('click', () => {
+                    const winLbl = document.getElementById('win');
+                    winLbl.style.display = 'none';
+
+                    const letters = document.querySelectorAll('button:disabled');
+                    for (const btn of letters)
+                        btn.remove();
+
+                    resetGame();
+                    board.style.display = 'none';
+                    splashscreen.style.display = 'block';
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="game">
+            <div id="splashscreen">
+                <h1>Uhádni slovo</h1>
+                <input type="text" id="word" placeholder="Zadanie">
+                <button id="play">Hraj</button> 
+            </div>
+            <div id="board">
+                <p id="score"><span id="points">0</span> €</p>
+                <p id="win">Vyhral si! <button id="playAgain">Hraj znova</button></p>
+                <p id="blanks"></p>
+                <div id="keyboard"></div>
+            </div>
+        </div>
+    </body>
+</html>
